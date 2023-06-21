@@ -13,7 +13,7 @@ export const food = [
   {
     id: 1,
     name: 'Bread',
-    mountPerServing: '2 medium slices',
+    amountPerServing: '2 medium slices',
     quantity: 80,
     categoryId: 1,
     envCost: 97,
@@ -27,7 +27,7 @@ export const food = [
   {
     id: 2,
     name: 'Brown bread',
-    mountPerServing: '2 medium slices',
+    amountPerServing: '2 medium slices',
     quantity: 80,
     categoryId: 1,
     envCost: 88,
@@ -41,7 +41,7 @@ export const food = [
   {
     id: 3,
     name: 'Chocolate cake',
-    mountPerServing: '1 slice',
+    amountPerServing: '1 slice',
     quantity: 120,
     categoryId: 1,
     envCost: 440,
@@ -55,7 +55,7 @@ export const food = [
   {
     id: 4,
     name: 'Doughnut',
-    mountPerServing: '1 doughnut',
+    amountPerServing: '1 doughnut',
     quantity: 75,
     categoryId: 1,
     envCost: 493,
@@ -69,7 +69,7 @@ export const food = [
   {
     id: 5,
     name: 'Sponge cake',
-    mountPerServing: '1 slice',
+    amountPerServing: '1 slice',
     quantity: 120,
     categoryId: 1,
     envCost: 368,
@@ -83,7 +83,7 @@ export const food = [
   {
     id: 6,
     name: 'Biscuit',
-    mountPerServing: '3 biscuits',
+    amountPerServing: '3 biscuits',
     quantity: 45,
     categoryId: 2,
     envCost: 59,
@@ -97,7 +97,7 @@ export const food = [
   {
     id: 7,
     name: 'Chocolate snack bar',
-    mountPerServing: '1 bar',
+    amountPerServing: '1 bar',
     quantity: 32,
     categoryId: 2,
     envCost: 162,
@@ -111,7 +111,7 @@ export const food = [
   {
     id: 8,
     name: 'Marshmallow',
-    mountPerServing: '5 large marshmallows',
+    amountPerServing: '5 large marshmallows',
     quantity: 35,
     categoryId: 2,
     envCost: 84,
@@ -125,7 +125,7 @@ export const food = [
   {
     id: 9,
     name: 'Milk-based sweet',
-    mountPerServing: 'Milk-based sweet',
+    amountPerServing: 'Milk-based sweet',
     quantity: 10,
     categoryId: 2,
     envCost: 42,
@@ -139,7 +139,7 @@ export const food = [
   {
     id: 11,
     name: 'Almond milk',
-    mountPerServing: '1 small glass',
+    amountPerServing: '1 small glass',
     quantity: 200,
     categoryId: 3,
     envCost: 113,
@@ -151,9 +151,9 @@ export const food = [
     ]
   },
   {
-    id: 11,
+    id: 12,
     name: 'Milk',
-    mountPerServing: '1 small glass',
+    amountPerServing: '1 small glass',
     quantity: 200,
     categoryId: 3,
     envCost: 352,
@@ -165,9 +165,9 @@ export const food = [
     ]
   },
   {
-    id: 12,
+    id: 13,
     name: 'Mozzarella',
-    mountPerServing: '2 thumbs',
+    amountPerServing: '2 thumbs',
     quantity: 20,
     categoryId: 3,
     envCost: 193,
@@ -179,9 +179,9 @@ export const food = [
     ]
   },
   {
-    id: 12,
+    id: 14,
     name: 'Oatmilk',
-    mountPerServing: '1 small glass',
+    amountPerServing: '1 small glass',
     quantity: 200,
     categoryId: 3,
     envCost: 71,
@@ -193,9 +193,9 @@ export const food = [
     ]
   },
   {
-    id: 12,
+    id: 15,
     name: 'Ice cream',
-    mountPerServing: '2 scoops',
+    amountPerServing: '2 scoops',
     quantity: 120,
     categoryId: 3,
     envCost: 458,
@@ -207,9 +207,9 @@ export const food = [
     ]
   },
   {
-    id: 13,
+    id: 16,
     name: 'Soy milk',
-    mountPerServing: '1 small glass',
+    amountPerServing: '1 small glass',
     quantity: 200,
     categoryId: 3,
     envCost: 156,
@@ -221,9 +221,9 @@ export const food = [
     ]
   },
   {
-    id: 14,
+    id: 17,
     name: 'Apple juice',
-    mountPerServing: '2 small glass',
+    amountPerServing: '2 small glass',
     quantity: 150,
     categoryId: 4,
     envCost: 366,
@@ -235,9 +235,9 @@ export const food = [
     ]
   },
   {
-    id: 15,
+    id: 18,
     name: 'Americano',
-    mountPerServing: '1 small americano',
+    amountPerServing: '1 small americano',
     quantity: 120,
     categoryId: 4,
     envCost: 85,
@@ -249,9 +249,9 @@ export const food = [
     ]
   },
   {
-    id: 16,
+    id: 19,
     name: 'Beer',
-    mountPerServing: '1 glass',
+    amountPerServing: '1 glass',
     quantity: 400,
     categoryId: 4,
     envCost: 307,
@@ -263,9 +263,9 @@ export const food = [
     ]
   },
   {
-    id: 17,
+    id: 20,
     name: 'Black tea/Green tea',
-    mountPerServing: '1 mug',
+    amountPerServing: '1 mug',
     quantity: 400,
     categoryId: 4,
     envCost: 242,
@@ -277,9 +277,9 @@ export const food = [
     ]
   },
   {
-    id: 18,
+    id: 21,
     name: 'Cappuccino',
-    mountPerServing: '1 small cappuccino',
+    amountPerServing: '1 small cappuccino',
     quantity: 140,
     categoryId: 4,
     envCost: 226,
@@ -291,9 +291,9 @@ export const food = [
     ]
   },
   {
-    id: 19,
+    id: 22,
     name: 'Latte',
-    mountPerServing: '1 small latte',
+    amountPerServing: '1 small latte',
     quantity: 240,
     categoryId: 4,
     envCost: 387,
@@ -305,9 +305,9 @@ export const food = [
     ]
   },
   {
-    id: 20,
+    id: 23,
     name: 'Egg',
-    mountPerServing: '2 eggs',
+    amountPerServing: '2 eggs',
     quantity: 120,
     categoryId: 5,
     envCost: 541,
@@ -319,9 +319,9 @@ export const food = [
     ]
   },
   {
-    id: 21,
+    id: 24,
     name: 'Crab',
-    mountPerServing: '1 medium crab',
+    amountPerServing: '1 medium crab',
     quantity: 65,
     categoryId: 5,
     envCost: 1153,
@@ -333,9 +333,9 @@ export const food = [
     ]
   },
   {
-    id: 22,
+    id: 25,
     name: 'Lobster',
-    mountPerServing: '1 medium lobster',
+    amountPerServing: '1 medium lobster',
     quantity: 295,
     categoryId: 5,
     envCost: 5235,
@@ -347,9 +347,9 @@ export const food = [
     ]
   },
   {
-    id: 23,
+    id: 26,
     name: 'Oyster',
-    mountPerServing: '5 oysters',
+    amountPerServing: '5 oysters',
     quantity: 70,
     categoryId: 5,
     envCost: 213,
@@ -361,9 +361,9 @@ export const food = [
     ]
   },
   {
-    id: 24,
+    id: 27,
     name: 'Salmon',
-    mountPerServing: '1 piece',
+    amountPerServing: '1 piece',
     quantity: 170,
     categoryId: 5,
     envCost: 814,
@@ -375,9 +375,9 @@ export const food = [
     ]
   },
   {
-    id: 25,
+    id: 28,
     name: 'Shrimp',
-    mountPerServing: '5 shrimps',
+    amountPerServing: '5 shrimps',
     quantity: 120,
     categoryId: 5,
     envCost: 2129,
@@ -389,9 +389,9 @@ export const food = [
     ]
   },
   {
-    id: 26,
+    id: 29,
     name: 'Pork',
-    mountPerServing: '1 piece',
+    amountPerServing: '1 piece',
     quantity: 160,
     categoryId: 5,
     envCost: 1061,
@@ -403,9 +403,9 @@ export const food = [
     ]
   },
   {
-    id: 27,
+    id: 30,
     name: 'Chicken',
-    mountPerServing: '1 breast',
+    amountPerServing: '1 breast',
     quantity: 150,
     categoryId: 5,
     envCost: 708,
@@ -417,9 +417,9 @@ export const food = [
     ]
   },
   {
-    id: 28,
+    id: 31,
     name: 'Apple',
-    mountPerServing: '2 apples',
+    amountPerServing: '2 apples',
     quantity: 160,
     categoryId: 6,
     envCost: 144,
@@ -431,9 +431,9 @@ export const food = [
     ]
   },
   {
-    id: 29,
+    id: 32,
     name: 'Avocado',
-    mountPerServing: '1 avocado',
+    amountPerServing: '1 avocado',
     quantity: 170,
     categoryId: 6,
     envCost: 408,
@@ -445,9 +445,9 @@ export const food = [
     ]
   },
   {
-    id: 30,
+    id: 33,
     name: 'Banana',
-    mountPerServing: '1 banana',
+    amountPerServing: '1 banana',
     quantity: 120,
     categoryId: 6,
     envCost: 156,
@@ -459,9 +459,9 @@ export const food = [
     ]
   },
   {
-    id: 31,
+    id: 34,
     name: 'Kiwi',
-    mountPerServing: '1 kiwi fruit',
+    amountPerServing: '1 kiwi fruit',
     quantity: 120,
     categoryId: 6,
     envCost: 47,
@@ -473,9 +473,9 @@ export const food = [
     ]
   },
   {
-    id: 32,
+    id: 35,
     name: 'Mango',
-    mountPerServing: '2 slices',
+    amountPerServing: '2 slices',
     quantity: 80,
     categoryId: 6,
     envCost: 352,
@@ -487,9 +487,9 @@ export const food = [
     ]
   },
   {
-    id: 33,
+    id: 36,
     name: 'Strawberry',
-    mountPerServing: '1 handful',
+    amountPerServing: '1 handful',
     quantity: 80,
     categoryId: 6,
     envCost: 179,

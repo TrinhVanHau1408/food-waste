@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../../assets/logo.svg';
 import styled from 'styled-components';
+import { colors } from '../../constants/colors';
 // import { Image } from 'antd'
 // import { colors } from '../constans/colors';
 const HeaderWrapper = styled.header`
@@ -44,38 +45,49 @@ const Navigation = styled.nav`
     color: red; /* Change the color to your desired hover color */
   }
 
-  ul li a {
-    color: #333;
+  ul li button {
+    color: ${colors.primary};
     text-decoration: none;
+    border: none;
+    font-size: 18px;
+
   }
 
   li:active {
     color: blue; /* Change the color to your desired active color */
   }
 
+  button {
+    transition: background-color 0.3s ease;
+  }
+  .active {
+    border: 2px solid ${colors.primary};
+    border-radius: 20px;
+    padding: 5px 10px;
+  }
 `;
 
-export default function Header() {
+export default function Header({ scrollToSection, active }) {
   return (
     <HeaderWrapper>
       <Navigation>
 
-      <Logo className="logo">
-            <img src={logo} alt="Logo" />
-      </Logo>
+        <Logo className="logo">
+          <img src={logo} alt="Logo" />
+        </Logo>
         <ul>
-          
+
           <li>
-            <a href="/">Homepage</a>
+            <button className={active =='homePage'?'active':''} onClick={() => scrollToSection('homePage')}>Homepage</button>
           </li>
           <li>
-            <a href="/about">About us</a>
+            <button  className={active =='aboutUs'?'active':''} onClick={() => scrollToSection('aboutUs')}>About us</button>
           </li>
           <li>
-            <a href="/menu">Menu</a>
+            <button  className={active =='menu'?'active':''} onClick={() => scrollToSection('menu')}>Menu</button>
           </li>
           <li>
-            <a href="/members">Members</a>
+            <button className={active =='member'?'active':''} onClick={() => scrollToSection('member')}>Member</button>
           </li>
 
         </ul>
