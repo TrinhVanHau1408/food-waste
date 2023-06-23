@@ -46,7 +46,7 @@ const InfoWrapper = styled.div`
     color: #F6F9FA;
   
     text-align: center;
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 4px 4px  ${colors.primary};
   }
  
   .btn_menu {
@@ -89,7 +89,7 @@ export default function Banner({menuRef}) {
 
       <InfoWrapper>
         <Text className='title'>WHAT’S THE COST?</Text>
-        <Text className='text'>Choose your meal and see how much it “cost”.</Text>
+        <Text className='text'>Choose your meal and see how much it “costs”.</Text>
         <button className='btn_menu' onClick={ scrollToSectionMenu}>
          GO TO MENU
         </button>

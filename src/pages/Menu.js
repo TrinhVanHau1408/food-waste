@@ -189,7 +189,7 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
             </SiderWrapper>
             <Layout >
               <HeaderWrapper>
-              <button className='btn_reset_order' onClick={() => setOrder([])}>Rest order</button>
+              <button className='btn_reset_order' onClick={() => setOrder([])}>Re-order</button>
                 <button className='btn_order' onClick={() => setBillPopup(true)}>Order</button>
               </HeaderWrapper>
               <ContentWrapper>

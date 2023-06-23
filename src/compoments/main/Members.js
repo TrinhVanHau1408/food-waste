@@ -9,16 +9,17 @@ const MemberWrapper = styled(Row)`
   direction: column;
   justify-content: center;
   algin-item: center;
-  width: 250px;
+  width: 180px;
   
-  .avt {
+  .member_avt {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
     margin-bottom: 10px;
   }
   .member_name {
     font-weight: bold;
+    height: 60px;
    Text {
-    font-size: 20px;
+    font-size: 14px;
    }
   }
 `
@@ -30,7 +31,7 @@ export default function Members({ imageUrl, name }) {
         <Avatar className='member_avt' size={140} src={imageUrl} />
       </Col>
 
-      <Col className='member_name' style={{ textAlign: 'center' }}>
+      <Col className='member_name' style={{ textAlign: 'center', marginTop: 10 }}>
         <Text style={{fontSize: 20}} >{name}</Text>
       </Col>
     </MemberWrapper>

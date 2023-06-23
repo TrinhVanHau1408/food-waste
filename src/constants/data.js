@@ -505,6 +505,16 @@ export const food = [
 
 export const member = [
   {
+    id: 4,
+    name: 'Du Hoàng Anh',
+    imageUrl: images.member_hoanh_anh,
+  },
+  {
+    id: 5,
+    name: 'Nguyễn Khánh Đạt',
+    imageUrl: images.member_khach_dat,
+  },
+  {
     id: 1,
     name: 'Thái Thị Ngọc Nhung',
     imageUrl: images.member_ngoc_nhung ,
@@ -516,16 +526,8 @@ export const member = [
   },
   {
     id: 3,
-    name: 'Nguyễn Khách Đạt',
-    imageUrl: images.member_khach_dat,
-  },
-  {
-    id: 4,
     name: 'Nguyễn Hữu Thắng',
     imageUrl: images.member_huu_thang,
-  },{
-    id: 5,
-    name: 'Du Hoàng Anh',
-    imageUrl: images.member_hoanh_anh,
-  }
+  },
+  
 ]

@@ -45,21 +45,22 @@ export default function AboutUs() {
     <><AboutUsWrapper>
       <CardWrapper hoverable type='inner' title={<div className='title_about_us' ><Text  className='title_about_us'>ABOUT US</Text></div>}>
         <Text  className='content'>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently 
+        OVERBOX (abbreviation of My Leftover Box) is a communication campaign to raise awareness of food waste by providing interesting facts about leftovers, funded by the U.S. 
+        Consulate General in Ho Chi Minh City, and supported by ForGood Vietnam & Green Move Initiative.
         </Text>
       </CardWrapper>
       
     </AboutUsWrapper >
     <AboutUsWrapper>
-      <CardWrapper hoverable type='inner' title={<div className='title_about_us' ><Text  className='title_about_us'>FOOD WASTE IMPACT</Text></div>}>
+      <CardWrapper hoverable type='inner' title={<div className='title_about_us' ><Text  className='title_about_us'>WHY FOOD WASTE?</Text></div>}>
         <Text  className='content'>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently 
+        We observe FOOD WASTE happening every day worldwide as an alarming situation, 
+        but there isn't sufficient attention or practical action being taken to address this pressing issue. 
+        Large amounts of food waste generate enormous pressure on our planet every day, 
+        making it crucial to take steps to save and protect the home that we all share. And to make it happen, 
+        begin with even the tiniest and most simple things, which will also influence the impact of more significant changes. 
+        Come along with OVERBOX as we search for solutions and take "small but mighty" steps to save the environment. 
+        This website aims to help people better see the environmental costs of food production & consumption, and raise their awareness about food waste.
         </Text>
       </CardWrapper>
       
