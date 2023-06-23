@@ -61,7 +61,7 @@ const TableWrapper = styled.table`
   .Medium {
     color: orange;
   }
-  .Hide {
+  .High {
     color: red;
   }
 
