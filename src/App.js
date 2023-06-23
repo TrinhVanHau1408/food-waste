@@ -3,11 +3,15 @@ import Header from './compoments/header/Header';
 import Footer from './compoments/footer';
 import MenuDish from './pages/Menu';
 import {useRef, useState } from 'react';
-
+import ReactGA from 'react-ga';
 
 
 
 function App() {
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+  }, []);
   // const observerRef = useRef(null);
   const aboutUsRef = useRef(null);
   const menuRef = useRef(null);
