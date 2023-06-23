@@ -5,10 +5,10 @@ import AboutUs from '../compoments/main/AboutUs';
 import Dish from '../compoments/main/Dish';
 import { Row, Col, Typography, Layout, Menu, theme, Button, Divider } from 'antd';
 import { colors } from '../constants/colors';
-import { food, categoryFood } from '../constants/data';
+import { food, categoryFood, member } from '../constants/data';
 import Bill from '../compoments/main/Bill';
 import Members from '../compoments/main/Members';
-
+import { sizes } from '../constants/size';
 
 const { Title, Text } = Typography;
 const { Header, Content, Sider } = Layout;
@@ -31,7 +31,8 @@ const MenuWrapper = styled.div`
 `
 
 const RowWrapper = styled(Row)`
- 
+height: 420px; 
+overflow-y: scroll; 
  
 `
 const LayoutWrapper = styled(Layout)`
@@ -56,20 +57,34 @@ const HeaderWrapper = styled(Header)`
   display: flex;
   justify-content: flex-end;
 
-  Button {
+  button {
     margin-right: 10px;
     background-color: ${colors.primary};
     color: #ffffff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
     border: none;
+    border-radius: 10px;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 20px;
   }
 
-  Button:hover {
-    
+  button:hover {
+    scale: 1.1;
   }
+
+  .btn_reset_order {
+    background-color: transparent;
+    color: ${colors.primary};
+    border: 2px solid ${colors.primary};
+  }
+
+
+
+
 `;
 const ContentWrapper = styled(Content)`
-  margin: 10px;
+  padding: 2px 30px;
   background-color: ${props => props.theme.colorBgContainer};
   height: 400px, 
   overflowY: scroll;
@@ -104,7 +119,7 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
 
   };
   const [selectedItem, setSelectedItem] = useState(categoryFood[0].id);
-  const [filterFood, setFilterFood] = useState([])
+  const [filterFood, setFilterFood] = useState(food)
   const [order, setOrder] = useState([]);
   const [billPopup, setBillPopup] = useState(false);
   const handleMenuSelect = (item) => {
@@ -114,8 +129,13 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
   };
 
   useEffect(() => {
-    const filter = food.filter(({ categoryId }) => categoryId == selectedItem)
-    setFilterFood(filter)
+    if (selectedItem != 0) {
+      const filter = food.filter(({ categoryId }) => categoryId == selectedItem)
+      setFilterFood(filter)
+    } else {
+      setFilterFood(food)
+    }
+    
   }, [selectedItem]);
 
   const handleChildStateChange = (dish, myOrder, type) => {
@@ -144,7 +164,7 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
     <ThemeProvider theme={themes}>
       <MenuWrapper >
         <section ref={homepageRef}>
-          <Banner />
+          <Banner menuRef={menuRef}/>
         </section>
 
         <section ref={aboutUsRef}>
@@ -154,23 +174,24 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
         <section ref={menuRef}>
           {<Bill order={order} billPopup={billPopup} setBillPopup={setBillPopup} />}
           <div className='title_menu'>
-            <Text style={{ color: colors.primary, fontSize: 20, fontWeight: 'bold' }}>MENU</Text>
+            <Text style={{ color: colors.second, fontSize: sizes.h2, fontWeight: 'bold' }}>MENU</Text>
           </div>
           <LayoutWrapper >
 
-            <SiderWrapper style={{ background: colorBgContainer }} theme="light" width={250}>
-              <Menu style={{ marginTop: 60 }} theme="light" mode="inline" defaultSelectedKeys={['1']} items={items1} onSelect={handleMenuSelect}>
+            <SiderWrapper style={{ background: colorBgContainer }} theme="light" width={350}>
+              <Menu style={{ marginTop: 60, fontSize: sizes.h3 }} theme="light" mode="inline" defaultSelectedKeys={['0']} items={items1} onSelect={handleMenuSelect}>
               </Menu>
             </SiderWrapper>
             <Layout >
               <HeaderWrapper>
-                <Button type='defualt' onClick={() => setBillPopup(true)}>Order</Button>
+              <button className='btn_reset_order' onClick={() => setOrder([])}>Rest order</button>
+                <button className='btn_order' onClick={() => setBillPopup(true)}>Order</button>
               </HeaderWrapper>
               <ContentWrapper>
-                <RowWrapper gutter={[8, 16]}>
+                <RowWrapper gutter={[0, 16]}>
                   {filterFood.map((item, index) => (
 
-                    <Col key={index} span={8}>
+                    <Col key={index} span={12}>
                       <Dish dish={item} myOrder={order.filter(({ id }) => id == item.id)[0]} handleChildStateChange={handleChildStateChange} />
                     </Col>
 
@@ -183,26 +204,17 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
         <DividerCustomer />
         <section ref={memberRef}>
           <div className='title_menu'>
-            <Text style={{ color: colors.primary, fontSize: 20, fontWeight: 'bold' }}>MEMBER</Text>
+            <Text style={{ color: colors.second, fontSize: sizes.h2, fontWeight: 'bold' }}>MEMBER</Text>
           </div>
-          <RowMemberWrapper gutter={[48, 16]}>
-            <Col>
-              <Members />
-            </Col>
-            <Col>
-              <Members />
-            </Col>
-            <Col>
-              <Members />
-            </Col>
-            <Col>
-              <Members />
-            </Col>
+          <RowMemberWrapper gutter={[24, 16]}>
+           {member.map((item) => (
+            <Members span={12} key={item.id} imageUrl={item.imageUrl} name={item.name}/>
+           ))}
           </RowMemberWrapper>
         </section>
+      
       </MenuWrapper>
-
-
+     
     </ThemeProvider>
   )
 }

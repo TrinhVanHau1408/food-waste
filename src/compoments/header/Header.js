@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
+
 import styled from 'styled-components';
 import { colors } from '../../constants/colors';
+import { images } from '../../constants/images';
 // import { Image } from 'antd'
 // import { colors } from '../constans/colors';
 const HeaderWrapper = styled.header`
   background-color: #f2f2f2;
-  padding: 5px 0;
+  
   box-shadow: 0px 5px 4px rgba(118, 107, 107, 0.2);
  
   position: fixed;
@@ -19,8 +20,8 @@ const HeaderWrapper = styled.header`
 
 const Logo = styled.div`
   img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
 `;
 
@@ -73,7 +74,7 @@ export default function Header({ scrollToSection, active }) {
       <Navigation>
 
         <Logo className="logo">
-          <img src={logo} alt="Logo" />
+          <img src={images.logo} alt="Logo" />
         </Logo>
         <ul>
 

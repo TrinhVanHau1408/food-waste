@@ -1,44 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { Button, Image, Typography } from 'antd';
+import { Button, Image, Typography, Row, Col } from 'antd';
 import {
   PlusCircleOutlined,
   MinusCircleOutlined
 } from '@ant-design/icons';
 import { colors } from '../../constants/colors';
+import { sizes } from '../../constants/size';
 const { Text, Title } = Typography;
-const DishWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 280px;
-  height: 150px;
+const DishWrapper = styled(Row)`
+  width: 350px;
+  height: 200px;
   border-radius: 5px;
-  over-flow: hidden;
  
-  margin: 10px;
+  overflow: hidden;
+  margin: 5px 5px;
   
   box-shadow: 0 7px 7px rgba(118, 107, 107, 0.25);
   .name_dish {
     color: ${colors.primary};
-    font-size: 18px;
+    font-size: ${sizes.h4};
   }
   .amount_per_serving {
-    font-size: 9px;
+    font-size: 10px;
     opacity: 0.8;
   }
   .img_dish {
-    width: 150px;
-    height: 95%;
-    padding: 7px;
+    width: 200px;
+    height: 200px;
    
     object-fit: fill;
-    border-radius: 100%;
-    border: 2px solid ${colors.primary};
+   
+    
   }
 `
 
-const ContentWrapper = styled.div`
-  margin: 5px;
+const ContentWrapper = styled(Col)`
+  flex: 1;
+  margin: 10px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -48,17 +48,14 @@ const ContentWrapper = styled.div`
   }
  
 `
-const ImgWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  algin-item: center;
-  margin-right: 5px;
+const ImgWrapper = styled(Col)`
+
   
 `
 const ServingWrapper = styled.div`
   .order_sering {
     color: ${colors.primary};
-    font-size: 14;
+    font-size: 14px;
   }
   .btn_add_dish, .btn_delete_dish {
     border: none;
@@ -90,8 +87,31 @@ const ServingWrapper = styled.div`
 `
 
 const ButtonWrapper = styled.div`
+ 
   display: flex;
   direction: row;
+  justify-content: flex-end;
+
+ 
+`
+const MyButton = styled.button`
+
+   background-color: transparent;
+  .icon_add:hover {
+    
+    font-size: 50px;
+   }
+
+   .btn_add {
+    color: ${colors.primary}
+   }
+
+   .btn_delete {
+    color: ${colors.second}
+   }
+   .icon_btn_dish:hover {
+    scale: 1.1;
+   }
 
 `
 export default function Dish({ dish, myOrder, handleChildStateChange }) {
@@ -101,6 +121,11 @@ export default function Dish({ dish, myOrder, handleChildStateChange }) {
   return (
 
     <DishWrapper>
+
+
+      <ImgWrapper >
+        <Image preview={false} className='img_dish' src={dish.imageUrl} />
+      </ImgWrapper>
 
       <ContentWrapper>
         <div>
@@ -112,32 +137,30 @@ export default function Dish({ dish, myOrder, handleChildStateChange }) {
 
         <ServingWrapper>
           {/* <Text className='order_sering'>{myOrder && `${myOrder.amount} serving` } </Text> */}
-          <Text className='order_sering'>{myOrder &&  (myOrder.amount > 1?`${myOrder.amount} servings`:`${myOrder.amount} serving`)} </Text>
+          <Text className='order_sering'>{myOrder && (myOrder.amount > 1 ? `${myOrder.amount} servings` : `${myOrder.amount} serving`)} </Text>
 
           <ButtonWrapper>
-            <Button
-              type='defualt'
-              onClick={() => handleChildStateChange(dish, myOrder, 'add')}
-              className='btn_add_dish'
-              icon={
-                <PlusCircleOutlined
-                  style={{ fontSize: '30px' }}
-                  className='icon_add' />}>
-            </Button>
-            {myOrder && <Button 
+            {myOrder && <MyButton
+
               onClick={() => handleChildStateChange(dish, myOrder, 'delete')}
-              className='btn_delete_dish'
-              icon={<MinusCircleOutlined 
-                  style={{ fontSize: '30px' }} 
-                  className='icon_delete'/>}>
-                    
-            </Button>}
+              className='btn_delete_dish'>
+              <MinusCircleOutlined
+                style={{ fontSize: '30px' }}
+                className='icon_btn_dish btn_delete' />
+            </MyButton>}
+
+            <MyButton
+
+              onClick={() => handleChildStateChange(dish, myOrder, 'add')}
+              className='btn_add_dish'>
+              <PlusCircleOutlined
+                style={{ fontSize: '30px' }}
+                className='icon_btn_dish btn_add' />
+            </MyButton>
           </ButtonWrapper>
         </ServingWrapper>
       </ContentWrapper>
-      <ImgWrapper>
-        <Image preview={false} className='img_dish' src={dish.imageUrl} />
-      </ImgWrapper>
+
 
     </DishWrapper>
 

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Image, Typography, Button } from 'antd'
 import styled from 'styled-components';
-import banner from '../../assets/banner.jpg'
 import { colors } from '../../constants/colors';
-
+import { images } from '../../constants/images';
+import { sizes } from '../../constants/size';
 const { Title, Text } = Typography;
 const BannerWrapper = styled.div`
 
@@ -12,14 +12,21 @@ const BannerWrapper = styled.div`
   justify-content: center;
   position: relative;
   over-flow: hidden;
+
+  .banner_img {
+    object-fit: fill;
+    width: 1200px;
+    height: 450px;
+  }
   
 `;
 
 
 const BannerImg = styled(Image)`
 
-  object-fit: conver;
-  height: 1000px;
+  // object-fit: fill;
+  // width: 120px;
+  
 `;
 
 const InfoWrapper = styled.div`
@@ -29,59 +36,63 @@ const InfoWrapper = styled.div`
   align-items: center;
   position: absolute;
   bottom: 5%;
+  .title {
+    font-size: 50px;
+  }
+  .text {
+    font-size: ${sizes.h3}
+  }
   .title, .text  {
     color: #F6F9FA;
+  
     text-align: center;
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.8);
   }
-  .tilte {
-    border: 1px solid red;
-   
-  }
-
-  
+ 
   .btn_menu {
     margin-top: 10px;
-    width: 120px;
-    padding: 2px;
+    border-radius: 10px;
+    font-size: ${sizes.h4};
+    font-weight: bold;
+    padding: 10px 20px;
+    color: ${colors.white};
     background-color: ${colors.primary};
     border: none;
     box-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
-    &:hover {
-      color: #FF0000; /* Add the desired text color when hovering */
-    }
+
    
   }
 
-  .btn_text{
-    color: #F6F9FA;
-    font-weight: bold;
-    
-  }
-
   .btn_menu:hover  {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid ${colors.primary};
-   .btn_text {
-    color: ${colors.primary}
-   }
+    color: ${colors.primary};
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid ${colors.primary};
   }
 
 
 `;
 
 
-export default function Banner() {
+export default function Banner({menuRef}) {
+  const scrollToSectionMenu = () => {
+    let ref = menuRef;
+
+    if (ref  && ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+     
+    }
+  };
   return (
     <BannerWrapper>
-      <BannerImg preview={false} src={banner} />
+      <BannerImg  className='banner_img' preview={false} src={images.banner} />
 
       <InfoWrapper>
-        <Title level={3} className='title'>WHAT’S THE COST?</Title>
+        <Text className='title'>WHAT’S THE COST?</Text>
         <Text className='text'>Choose your meal and see how much it “cost”.</Text>
-        <Button className='btn_menu'>
-          <Text className='btn_text'>GO TO MENU</Text>
-        </Button>
+        <button className='btn_menu' onClick={ scrollToSectionMenu}>
+         GO TO MENU
+        </button>
       </InfoWrapper>
     </BannerWrapper>)
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, Typography, Divider } from 'antd'
 import { styled } from 'styled-components'
 import { colors } from '../../constants/colors';
+import { sizes } from '../../constants/size';
 const {Text} = Typography;
 const AboutUsWrapper = styled.div`
  
@@ -21,9 +22,9 @@ const CardWrapper = styled(Card)`
   .title_about_us {
     text-align: center;
 
-    color: ${colors.primary};
+    color: ${colors.second};
     font-weight: bold;
-    font-size: 18px;
+    font-size: ${sizes.h2};
     
   }
 

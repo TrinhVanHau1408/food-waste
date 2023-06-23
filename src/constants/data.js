@@ -1,6 +1,7 @@
 import { images } from "./images";
 
 export const categoryFood = [
+  { id: 0, name: 'All' },
   { id: 1, name: 'Bakery' },
   { id: 2, name: 'Biscuits & Confectioneries' },
   { id: 3, name: 'Dairy & alternatives' },
@@ -499,5 +500,32 @@ export const food = [
       { travelId: 2, equivalent: 60.8 },
       { travelId: 3, equivalent: 262.9 }
     ]
+  }
+]
+
+export const member = [
+  {
+    id: 1,
+    name: 'Thái Thị Ngọc Nhung',
+    imageUrl: images.member_ngoc_nhung ,
+  },
+  {
+    id: 2,
+    name: 'Nguyễn Mai Hoàng Oanh',
+    imageUrl: images.member_hoanh_oanh,
+  },
+  {
+    id: 3,
+    name: 'Nguyễn Khách Đạt',
+    imageUrl: images.member_khach_dat,
+  },
+  {
+    id: 4,
+    name: 'Nguyễn Hữu Thắng',
+    imageUrl: images.member_huu_thang,
+  },{
+    id: 5,
+    name: 'Du Hoàng Anh',
+    imageUrl: images.member_hoanh_anh,
   }
 ]

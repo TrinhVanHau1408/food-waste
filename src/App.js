@@ -1,9 +1,12 @@
-import { Footer } from 'antd/es/layout/layout';
 import './App.css';
 import Header from './compoments/header/Header';
-
+import Footer from './compoments/footer';
 import MenuDish from './pages/Menu';
-import { useEffect, useRef, useState } from 'react';
+import {useRef, useState } from 'react';
+
+
+
+
 function App() {
   // const observerRef = useRef(null);
   const aboutUsRef = useRef(null);
@@ -40,34 +43,13 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //   observerRef.current = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           // Phần tử đã được cuộn vào viewport
-  //           console.log(entry.target.id)
-  //           setActive(entry.target.id);
-  //         }
-  //       });
-  //     },
-  //     { threshold: 0.5 }
-  //   );
-
-  //   return () => {
-  //     if (observerRef.current) {
-  //       observerRef.current.disconnect();
-  //     }
-  //   };
-  // }, []);
-
-
+ 
 
   return (
     <div>
       <Header scrollToSection={scrollToSection} active={active}/>
       <MenuDish homepageRef={homepageRef} aboutUsRef={aboutUsRef} menuRef={menuRef} memberRef={memberRef}/>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
