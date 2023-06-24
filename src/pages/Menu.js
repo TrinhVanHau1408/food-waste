@@ -9,7 +9,7 @@ import { food, categoryFood, member } from '../constants/data';
 import Bill from '../compoments/main/Bill';
 import Members from '../compoments/main/Members';
 import { sizes } from '../constants/size';
-import ReactGA from 'react-ga';
+
 
 const { Title, Text } = Typography;
 const { Header, Content, Sider } = Layout;
@@ -112,9 +112,6 @@ const items1 = categoryFood.map(({ id, name }) => ({
 
 export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }) {
 
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
-  }, []);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
