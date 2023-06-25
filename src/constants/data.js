@@ -534,6 +534,10 @@ export const member = [
 
 export const funded = [
   {
+    id: 4,
+    imageUrl: images.tus_goverment,
+  },
+  {
     id: 1,
     imageUrl: images.american_center_hcmc,
   },
@@ -545,8 +549,5 @@ export const funded = [
     id: 3,
     imageUrl: images.green_move,
   },
-  {
-    id: 4,
-    imageUrl: images.tus_goverment,
-  }
+ 
 ]
