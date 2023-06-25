@@ -71,8 +71,8 @@ export default function Footer() {
     <FooterWrapper>
       <RowWrapper >
         <Col>
-          <Row >
-            <Text className='titleInfo'>Contact Information</Text>
+          <Row style={{display: 'flex',  justifyContent: 'center'}}>
+            <Text className='titleInfo member'>Contact Information</Text>
             <Col className='methodContact'>
               <Row className='method'>Email:</Row>
               <Row className='method'>Facebook:</Row>
