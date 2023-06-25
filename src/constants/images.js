@@ -42,6 +42,10 @@ import member_hoanh_oanh from '../assets/member_hoanh_oanh.jpg';
 import member_huu_thang from '../assets/member_huu_thang.jpg';
 import member_ngoc_nhung from '../assets/member_ngoc_nhung.jpg';
 import member_khach_dat from '../assets/member_khach_dat.JPG';
+import tus_goverment from '../assets/The_United _States_Government.png';
+import for_good_vietnam from '../assets/ForGood_Vietnam.png';
+import green_move from '../assets/Green_Move.png';
+import american_center_hcmc from '../assets/American_Center_HCMC.png'
 export const images = {
   almond_milk,
   americano,
@@ -86,7 +90,11 @@ export const images = {
   member_hoanh_oanh,
   member_huu_thang,
   member_khach_dat,
-  member_ngoc_nhung
+  member_ngoc_nhung,
+  tus_goverment,
+  american_center_hcmc,
+  for_good_vietnam,
+  green_move
 
 }
 

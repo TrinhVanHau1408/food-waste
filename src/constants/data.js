@@ -531,3 +531,22 @@ export const member = [
   },
   
 ]
+
+export const funded = [
+  {
+    id: 1,
+    imageUrl: images.american_center_hcmc,
+  },
+  {
+    id: 2,
+    imageUrl: images.for_good_vietnam,
+  },
+  {
+    id: 3,
+    imageUrl: images.green_move,
+  },
+  {
+    id: 4,
+    imageUrl: images.tus_goverment,
+  }
+]

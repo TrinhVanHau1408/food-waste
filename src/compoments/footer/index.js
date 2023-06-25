@@ -1,8 +1,8 @@
 import React from 'react'
 import { styled } from 'styled-components'
 import { colors } from '../../constants/colors'
-import { Row, Col, Typography, Avatar } from 'antd'
-import { member } from '../../constants/data';
+import { Row, Col, Typography, Image } from 'antd'
+import { funded, member } from '../../constants/data';
 
 const { Text } = Typography;
 
@@ -54,6 +54,17 @@ const RowWrapper = styled(Row)`
       color: ${colors.white};
     }
   }
+
+  .icon_funded {
+   
+   
+   
+    border: 1px solid ${colors.second};
+    background-color: ${colors.white};
+    width: 70px;
+   
+ 
+  }
 `
 export default function Footer() {
   return (
@@ -77,11 +88,11 @@ export default function Footer() {
 
         <Col>
           <Row style={{display: 'flex',  justifyContent: 'center'}}>
-            <Text className='titleInfo member'>Team Roster</Text>
+            <Text className='titleInfo member'>Funded by</Text>
             <Row >
-              {member.map((item) => (
-                <Col style={{ marginRight: 5 }}>
-                  <Avatar size={50} src={item.imageUrl} />
+              {funded.map((item) => (
+                <Col style={{ marginRight: 10 }}>
+                  <Image className='icon_funded' src={item.imageUrl} />
                 </Col>
               ))}
             </Row>
