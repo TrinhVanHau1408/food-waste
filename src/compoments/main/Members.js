@@ -16,6 +16,7 @@ const MemberWrapper = styled(Row)`
     margin-bottom: 10px;
   }
   .member_name {
+    width: 120px;
     font-weight: bold;
     height: 60px;
    Text {

@@ -40,13 +40,17 @@ const InfoWrapper = styled.div`
     font-size: 50px;
   }
   .text {
+    margin-top: 5px;
     font-size: ${sizes.h3}
   }
   .title, .text  {
     color: #F6F9FA;
   
     text-align: center;
-    text-shadow: 0 4px 4px  ${colors.primary};
+  
+    background-color: rgba(161, 59, 70, 0.8);
+    border-radius: 5px;
+    padding: 0 20px;
   }
  
   .btn_menu {

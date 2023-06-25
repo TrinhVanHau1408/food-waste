@@ -20,8 +20,8 @@ const HeaderWrapper = styled.header`
 
 const Logo = styled.div`
   img {
-    width: 100px;
-    height: 100px;
+    width: 140px;
+  
   }
 `;
 

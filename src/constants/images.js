@@ -4,7 +4,7 @@ import apple_juice from '../assets/apple_juice.jpg';
 import apple from '../assets/apple.jpg';
 import avocado from '../assets/avocado.jpg';
 import banana from '../assets/banana.jpg';
-import banner from '../assets/banner.png';
+import banner from '../assets/Banner.jpg';
 import beef from '../assets/beef.jpg';
 import beer from '../assets/beer.jpg';
 import biscuit from '../assets/biscuit.jpg';
