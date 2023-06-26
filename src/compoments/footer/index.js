@@ -17,7 +17,7 @@ const FooterWrapper = styled.div`
 const RowWrapper = styled(Row)`
   width: 1000px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   color: ${colors.second};
 
   .titleInfo {
@@ -83,19 +83,6 @@ export default function Footer() {
               <Row className='content'><a href='https://www.facebook.com/myleftoverbox'>https://www.facebook.com/myleftoverbox</a></Row>
               <Row className='content'>0834514044 - 0367624114</Row>
             </Col>
-          </Row>
-        </Col>
-
-        <Col>
-          <Row style={{display: 'flex',  justifyContent: 'center'}}>
-            <Text className='titleInfo member'>Funded by</Text>
-            <Row >
-              {funded.map((item) => (
-                <Col style={{ marginRight: 10 }}>
-                  <Image className='icon_funded' src={item.imageUrl} />
-                </Col>
-              ))}
-            </Row>
           </Row>
         </Col>
       </RowWrapper>
