@@ -47,6 +47,14 @@ const CardWrapper = styled(Card)`
     .title_about_us {
       font-size: 18px;
     }
+
+    .rowLogo {
+      margin: 5px;
+    }
+  }
+
+  @media(max-width:790px) {
+    .icon_funded {width: 100px;}
   }
 
 `;
@@ -71,7 +79,7 @@ export default function AboutUs() {
         <CardWrapper hoverable type='inner' title={<div className='title_about_us' ><Text className='title_about_us'>OUR SPONSORS & SUPPORTERS</Text></div>}>
           <Row style={{display: 'flex', justifyContent: 'center'}}>
             {funded.map((item) => (
-              <Col style={{ marginRight: 10 }}>
+              <Col style={{ marginRight: 10, marginBottom: 10 }}>
                 <Image className='icon_funded' src={item.imageUrl} />
               </Col>
             ))}

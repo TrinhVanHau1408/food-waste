@@ -6,7 +6,7 @@ import { images } from '../../constants/images';
 import { sizes } from '../../constants/size';
 const { Title, Text } = Typography;
 const BannerWrapper = styled.div`
-border: 1px solid black;
+
   margin-top: 110px;
   display: flex;
   justify-content: center;
@@ -36,7 +36,6 @@ const BannerImg = styled(Image)`
 `;
 
 const InfoWrapper = styled.div`
- border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
