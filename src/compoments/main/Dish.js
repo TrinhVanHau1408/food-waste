@@ -33,6 +33,24 @@ const DishWrapper = styled(Row)`
    
     
   }
+
+  @media(max-width: 912px) {
+
+    width: 200px;
+    height: 200px;
+
+    .name_dish {
+      font-size: 13px;
+    }
+    .img_dish {
+      width: 80px;
+      height: 200px;
+     
+      object-fit: fill;
+     
+      
+    }
+   }
 `
 
 const ContentWrapper = styled(Col)`
@@ -83,6 +101,19 @@ const ServingWrapper = styled.div`
   .icon_delete {
     font-size: 50px;
     color: red;
+  }
+
+  @media(max-width: 912px) {
+    .btn_delete_dish {
+      margin-left: 5px;
+    }
+    .icon_add {
+      font-size: 30px;
+    }
+
+    .order_sering {
+      font-size: 10px;
+    }
   }
 `
 

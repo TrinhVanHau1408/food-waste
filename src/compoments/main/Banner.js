@@ -6,7 +6,7 @@ import { images } from '../../constants/images';
 import { sizes } from '../../constants/size';
 const { Title, Text } = Typography;
 const BannerWrapper = styled.div`
-
+border: 1px solid black;
   margin-top: 110px;
   display: flex;
   justify-content: center;
@@ -19,6 +19,12 @@ const BannerWrapper = styled.div`
     height: 450px;
   }
   
+  @media(max-width: 912px) {
+    .banner_img {
+      width: 100%;
+      height: auto;
+    }
+   }
 `;
 
 
@@ -30,6 +36,7 @@ const BannerImg = styled(Image)`
 `;
 
 const InfoWrapper = styled.div`
+ border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,6 +82,23 @@ const InfoWrapper = styled.div`
   }
 
 
+  @media(max-width: 912px) {
+    .title {
+      font-size: 20px;
+    }
+    .text {
+      margin-top: 5px;
+      font-size: 18px;
+    }
+
+    .title, .text {
+      padding: 0 10px;
+    }
+
+    .btn_menu {
+      font-size: 18px;
+    }
+   }
 `;
 
 

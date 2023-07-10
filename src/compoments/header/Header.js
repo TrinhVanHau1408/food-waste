@@ -66,6 +66,16 @@ const Navigation = styled.nav`
     border-radius: 20px;
     padding: 5px 10px;
   }
+
+
+  
+  @media(max-width: 912px) {
+
+    margin: 0;
+    .displayNav {
+      display: none;
+    }
+   }
 `;
 
 export default function Header({ scrollToSection, active }) {
@@ -76,7 +86,7 @@ export default function Header({ scrollToSection, active }) {
         <Logo className="logo">
           <img src={images.logo} alt="Logo" />
         </Logo>
-        <ul>
+        <ul className='displayNav'>
 
           <li>
             <button className={active =='homePage'?'active':''} onClick={() => scrollToSection('homePage')}>Homepage</button>

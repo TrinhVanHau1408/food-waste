@@ -43,6 +43,12 @@ const CardWrapper = styled(Card)`
  
   }
   
+  @media(max-width: 912px) {
+    .title_about_us {
+      font-size: 18px;
+    }
+  }
+
 `;
 
 const DividerCustomer = styled(Divider)`

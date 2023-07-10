@@ -15,6 +15,7 @@ const { Title, Text } = Typography;
 const { Header, Content, Sider } = Layout;
 const MenuWrapper = styled.div`
   width: 100%;
+  border: 1px solid black;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -26,14 +27,28 @@ const MenuWrapper = styled.div`
   }
 
   .title_menu {
-   
     text-align: center;
+    
+  }
+  .text_title {
+    color: ${colors.second};
+    font-size: ${sizes.h2};
+    font-weight: bold;
+  }
+
+     @media(max-width: 912px) {
+      .text_title {
+        font-size: 20px;
+      }
+    }
   
 `
 
 const RowWrapper = styled(Row)`
 height: 420px; 
 overflow-y: scroll; 
+margin: 0;
+padding: 0;
  
 `
 const LayoutWrapper = styled(Layout)`
@@ -80,6 +95,12 @@ const HeaderWrapper = styled(Header)`
     border: 2px solid ${colors.primary};
   }
 
+  @media(max-width: 912px) {
+   .btn_order {
+    margin-right: 20x;
+   }
+  }
+
 
 
 
@@ -90,6 +111,11 @@ const ContentWrapper = styled(Content)`
   height: 400px, 
   overflowY: scroll;
   overflowX: hidden;
+
+  @media(max-width: 912px) {
+    padding: 2px 2px;
+    height: 300px, 
+   }
 
 `;
 
@@ -137,7 +163,7 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
     } else {
       setFilterFood(food)
     }
-    
+
   }, [selectedItem]);
 
   const handleChildStateChange = (dish, myOrder, type) => {
@@ -166,7 +192,7 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
     <ThemeProvider theme={themes}>
       <MenuWrapper >
         <section ref={homepageRef}>
-          <Banner menuRef={menuRef}/>
+          <Banner menuRef={menuRef} />
         </section>
 
         <section ref={aboutUsRef}>
@@ -176,21 +202,21 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
         <section ref={menuRef}>
           {<Bill order={order} billPopup={billPopup} setBillPopup={setBillPopup} />}
           <div className='title_menu'>
-            <Text style={{ color: colors.second, fontSize: sizes.h2, fontWeight: 'bold' }}>MENU</Text>
+            <Text className='text_title'>MENU</Text>
           </div>
           <LayoutWrapper >
 
-            <SiderWrapper style={{ background: colorBgContainer }} theme="light" width={350}>
-              <Menu style={{ marginTop: 60, fontSize: sizes.h3 }} theme="light" mode="inline" defaultSelectedKeys={['0']} items={items1} onSelect={handleMenuSelect}>
+            <SiderWrapper style={{display: 'none', background: colorBgContainer}} theme="light" width={350}>
+              <Menu style={{ marginTop: 60, fontSize: sizes.h3, display: 'none'  }} theme="light" mode="inline" defaultSelectedKeys={['0']} items={items1} onSelect={handleMenuSelect}>
               </Menu>
             </SiderWrapper>
             <Layout >
               <HeaderWrapper>
-              <button className='btn_reset_order' onClick={() => setOrder([])}>Re-order</button>
+                <button className='btn_reset_order' onClick={() => setOrder([])}>Re-order</button>
                 <button className='btn_order' onClick={() => setBillPopup(true)}>Order</button>
               </HeaderWrapper>
               <ContentWrapper>
-                <RowWrapper gutter={[0, 16]}>
+                <RowWrapper gutter={[0, 8]}>
                   {filterFood.map((item, index) => (
 
                     <Col key={index} span={12}>
@@ -206,17 +232,17 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
         <DividerCustomer />
         <section ref={memberRef}>
           <div className='title_menu'>
-            <Text style={{ color: colors.second, fontSize: sizes.h2, fontWeight: 'bold' }}>MEMBER</Text>
+            <Text className='text_title'>MEMBER</Text>
           </div>
           <RowMemberWrapper gutter={[24, 16]}>
-           {member.map((item) => (
-            <Members span={12} key={item.id} imageUrl={item.imageUrl} name={item.name}/>
-           ))}
+            {member.map((item) => (
+              <Members span={12} key={item.id} imageUrl={item.imageUrl} name={item.name} />
+            ))}
           </RowMemberWrapper>
         </section>
-      
+
       </MenuWrapper>
-     
+
     </ThemeProvider>
   )
 }
