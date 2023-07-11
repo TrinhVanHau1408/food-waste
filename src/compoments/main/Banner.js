@@ -87,7 +87,7 @@ const InfoWrapper = styled.div`
     }
     .text {
       margin-top: 5px;
-      font-size: 18px;
+      font-size: 16px;
     }
 
     .title, .text {
