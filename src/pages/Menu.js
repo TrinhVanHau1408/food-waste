@@ -23,8 +23,9 @@ const { Header, Content, Sider } = Layout;
 const MenuWrapper = styled.div`
   width: 99%;
   max-width: 1200px;
-
-  margin: 0 2px;
+  
+  margin: 0 auto;
+  
 
   .ant-menu-item-selected {
     background-color: ${colors.primary};
@@ -133,6 +134,7 @@ const HeaderWrapper = styled(Header)`
   @media(max-width: 912px) {
     justify-content: space-between;
 
+    margin: 0 2px;
    .btn_order {
     margin-right: 20x;
    }
