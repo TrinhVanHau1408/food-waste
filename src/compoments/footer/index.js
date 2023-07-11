@@ -58,9 +58,6 @@ const RowWrapper = styled(Row)`
     width: 70px;
   }
 
-  // @media(max-width: 912px) { 
-  //   width: 100%;
-  // }
 `
 export default function Footer() {
   return (

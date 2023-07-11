@@ -19,13 +19,11 @@ import { sizes } from '../constants/size';
 const { Title, Text } = Typography;
 const { Header, Content, Sider } = Layout;
 
-const ContainerWrapper = styled.div`
 
-`
 const MenuWrapper = styled.div`
-  width: 100%;
+  width: 99%;
   max-width: 1200px;
-  margin: 0 auto;
+
 
   .ant-menu-item-selected {
     background-color: ${colors.primary};
@@ -113,12 +111,14 @@ const HeaderWrapper = styled(Header)`
     border: 2px solid ${colors.primary};
   }
   select {
+    background: transparent;
     outline: none;
     border: none;
     width: 100px;
     font-size: 20px;
     font-weight: bold;
     border-radius: 5px;
+    maring-left: 2px;
     color: ${colors.primary};
     option {
       font-size: 14px;
@@ -239,7 +239,7 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
 
   return (
     <ThemeProvider theme={themes}>
-      <ContainerWrapper>
+     
         <MenuWrapper >
           <section ref={homepageRef}>
             <Banner menuRef={menuRef} />
@@ -304,8 +304,7 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
           </section>
 
         </MenuWrapper>
-      </ContainerWrapper>
-
+     
     </ThemeProvider>
   )
 }
