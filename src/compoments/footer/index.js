@@ -6,12 +6,12 @@ import { funded, member } from '../../constants/data';
 
 const { Text } = Typography;
 
-const FooterWrapper = styled.div`
-  
+const FooterWrapper = styled.footer`
+  width: 100%;
   background-color: ${colors.primary};
   display: flex;
   justify-content: center;
-  
+
 `
 
 const RowWrapper = styled(Row)`
@@ -23,10 +23,8 @@ const RowWrapper = styled(Row)`
   .titleInfo {
     width: 100%;
     font-size: 20px;
-  
     margin: 10px 0;
     margin-left: 20px;
-
     color: ${colors.second};
   }
 
@@ -48,7 +46,6 @@ const RowWrapper = styled(Row)`
       margin-bottom: 10px;
       color: ${colors.white};
     }
-
     .content a {
       outline: none;
       color: ${colors.white};
@@ -56,22 +53,22 @@ const RowWrapper = styled(Row)`
   }
 
   .icon_funded {
-   
-   
-   
     border: 1px solid ${colors.second};
     background-color: ${colors.white};
     width: 70px;
-   
- 
   }
+
+  // @media(max-width: 912px) { 
+  //   width: 100%;
+  // }
 `
 export default function Footer() {
   return (
+
     <FooterWrapper>
       <RowWrapper >
         <Col>
-          <Row style={{display: 'flex',  justifyContent: 'center'}}>
+          <Row style={{ display: 'flex', justifyContent: 'center' }}>
             <Text className='titleInfo member'>Contact Information</Text>
             <Col className='methodContact'>
               <Row className='method'>Email:</Row>
@@ -87,5 +84,7 @@ export default function Footer() {
         </Col>
       </RowWrapper>
     </FooterWrapper>
+
+
   )
 }

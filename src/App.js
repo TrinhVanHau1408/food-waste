@@ -47,7 +47,7 @@ function App() {
  
 
   return (
-    <div>
+    <div >
       <Header scrollToSection={scrollToSection} active={active}/>
       <MenuDish homepageRef={homepageRef} aboutUsRef={aboutUsRef} menuRef={menuRef} memberRef={memberRef}/>
       <Footer />

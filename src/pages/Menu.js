@@ -18,15 +18,15 @@ import { sizes } from '../constants/size';
 
 const { Title, Text } = Typography;
 const { Header, Content, Sider } = Layout;
+
+const ContainerWrapper = styled.div`
+
+`
 const MenuWrapper = styled.div`
-
   width: 100%;
-
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  margin: 0 auto;
+
   .ant-menu-item-selected {
     background-color: ${colors.primary};
     color: #fff;
@@ -53,6 +53,7 @@ const MenuWrapper = styled.div`
 const RowWrapper = styled(Row)`
 height: 420px; 
 overflow-y: scroll; 
+
 margin: 0;
 padding: 0;
  
@@ -238,71 +239,72 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
 
   return (
     <ThemeProvider theme={themes}>
-      <MenuWrapper >
-        <section ref={homepageRef}>
-          <Banner menuRef={menuRef} />
-        </section>
+      <ContainerWrapper>
+        <MenuWrapper >
+          <section ref={homepageRef}>
+            <Banner menuRef={menuRef} />
+          </section>
 
-        <section ref={aboutUsRef}>
-          <AboutUs />
-        </section>
+          <section ref={aboutUsRef}>
+            <AboutUs />
+          </section>
 
-        <section ref={menuRef}>
-          {<Bill order={order} billPopup={billPopup} setBillPopup={setBillPopup} />}
-          <div className='title_menu'>
-            <Text className='text_title'>MENU</Text>
-          </div>
-          <LayoutWrapper >
+          <section  ref={menuRef}>
+            {<Bill order={order} billPopup={billPopup} setBillPopup={setBillPopup} />}
+            <div className='title_menu'>
+              <Text className='text_title'>MENU</Text>
+            </div>
+            <LayoutWrapper >
 
 
-            {screenWidth > 912 ? <SiderWrapper style={{ background: colorBgContainer }} theme="light" width={350}>
-              <Menu className='menuCategory' theme="light" mode="inline" defaultSelectedKeys={['0']} items={items1} onSelect={handleMenuSelect}>
-              </Menu>
-            </SiderWrapper> :
-              <div></div>
-            }
-            <Layout >
+              {screenWidth > 912 && <SiderWrapper style={{ background: colorBgContainer }} theme="light" width={350}>
+                <Menu className='menuCategory' theme="light" mode="inline" defaultSelectedKeys={['0']} items={items1} onSelect={handleMenuSelect}>
+                </Menu>
+              </SiderWrapper> 
+              }
+              <Layout >
 
-              <HeaderWrapper>
-                {/* <div><UnorderedListOutlined style={{ fontSize: 24, color: colors.primary }} onClick={() => { widthCategory == 0 ? setWidthCategory(200) : setWidthCategory(0) }} /></div> */}
-                <select id="selectOption" value={selectedItem}  onChange={handleSelectChange}>
-                  <option value="">-- Categoty --</option>
-                  {items1.map(({key, label})=>(
-                          <option value={key} className={key==selectedItem?'selected':''}>{label}</option>
-                  ))}
-                  </select>
-                <div>
-                  <button className='btn_reset_order' onClick={() => setOrder([])}>Re-order</button>
-                  <button className='btn_order' onClick={() => setBillPopup(true)}>Order</button>
-                </div>
-              </HeaderWrapper>
-              <ContentWrapper>
-                <RowWrapper gutter={[0, 8]}>
-                  {filterFood.map((item, index) => (
+                <HeaderWrapper>
+                  {/* <div><UnorderedListOutlined style={{ fontSize: 24, color: colors.primary }} onClick={() => { widthCategory == 0 ? setWidthCategory(200) : setWidthCategory(0) }} /></div> */}
+                  {screenWidth <912 &&<select id="selectOption" value={selectedItem} onChange={handleSelectChange}>
+                    <option value="">-- Categoty --</option>
+                    {items1.map(({ key, label }) => (
+                      <option value={key} className={key == selectedItem ? 'selected' : ''}>{label}</option>
+                    ))}
+                  </select>}
+                  <div>
+                    <button className='btn_reset_order' onClick={() => setOrder([])}>Re-order</button>
+                    <button className='btn_order' onClick={() => setBillPopup(true)}>Order</button>
+                  </div>
+                </HeaderWrapper>
+                <ContentWrapper>
+                  <RowWrapper gutter={[0, 8]}>
+                    {filterFood.map((item, index) => (
 
-                    <Col key={index} span={screenWidth < 912 ? 18 : 12}>
-                      <Dish dish={item} myOrder={order.filter(({ id }) => id == item.id)[0]} handleChildStateChange={handleChildStateChange} />
-                    </Col>
+                      <Col key={index} span={screenWidth < 912 ? 18 : 12}>
+                        <Dish dish={item} myOrder={order.filter(({ id }) => id == item.id)[0]} handleChildStateChange={handleChildStateChange} />
+                      </Col>
 
-                  ))}
-                </RowWrapper>
-              </ContentWrapper>
-            </Layout>
-          </LayoutWrapper>
-        </section>
-        <DividerCustomer />
-        <section ref={memberRef}>
-          <div className='title_menu'>
-            <Text className='text_title'>MEMBER</Text>
-          </div>
-          <RowMemberWrapper gutter={screenWidth>912?[24, 16]:[4, 8]}>
-            {member.map((item) => (
-              <Members span={12} key={item.id} imageUrl={item.imageUrl} name={item.name} />
-            ))}
-          </RowMemberWrapper>
-        </section>
+                    ))}
+                  </RowWrapper>
+                </ContentWrapper>
+              </Layout>
+            </LayoutWrapper>
+          </section>
+          <DividerCustomer />
+          <section ref={memberRef}>
+            <div className='title_menu'>
+              <Text className='text_title'>MEMBER</Text>
+            </div>
+            <RowMemberWrapper gutter={screenWidth > 912 ? [24, 16] : [4, 8]}>
+              {member.map((item) => (
+                <Members span={12} key={item.id} imageUrl={item.imageUrl} name={item.name} />
+              ))}
+            </RowMemberWrapper>
+          </section>
 
-      </MenuWrapper>
+        </MenuWrapper>
+      </ContainerWrapper>
 
     </ThemeProvider>
   )
