@@ -128,7 +128,7 @@ const TableWrapper = styled.table`
 const NoteWrapper = styled.div`
   margin-left: 40px;
   margin-top: 20px;
-
+  text-align: justify;
   .textNote {
     opacity: 0.8;
   }
