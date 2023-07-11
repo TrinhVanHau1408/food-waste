@@ -295,7 +295,7 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
           <div className='title_menu'>
             <Text className='text_title'>MEMBER</Text>
           </div>
-          <RowMemberWrapper gutter={[24, 16]}>
+          <RowMemberWrapper gutter={screenWidth>912?[24, 16]:[4, 8]}>
             {member.map((item) => (
               <Members span={12} key={item.id} imageUrl={item.imageUrl} name={item.name} />
             ))}

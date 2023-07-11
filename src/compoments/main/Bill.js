@@ -5,7 +5,7 @@ import { food } from '../../constants/data';
 import { colors } from '../../constants/colors';
 
 
-const {Text} = Typography;
+const { Text } = Typography;
 
 const ModalWrapper = styled(Modal)`
   .ant-modal-title {
@@ -19,11 +19,15 @@ const ModalWrapper = styled(Modal)`
   cancelButton {
     color: ${colors.primary};
   }
+
+  @media(max-width: 912px) {
+    padding: 0 -20px;
+  }
 `;
 const TableWrapper = styled.table`
 
   border-spacing: 0;
-
+  
   padding-left: 40px;  
   tr th {
     color: ${colors.primary}
@@ -52,6 +56,11 @@ const TableWrapper = styled.table`
   tr td {
     padding:2px 10px;
   }
+
+  .unit {
+    font-size: 12;
+    opacity: 0.8;
+  }
   .VeryLow {
     color: blue;
   }
@@ -79,7 +88,61 @@ const TableWrapper = styled.table`
     font-weight: bold;
     color: ${colors.primary}
   }
- 
+
+  @media(max-width: 912px) {
+
+    font-size: 10px;
+   padding: 0px;
+   margin: 0 -10px;
+   .thServing {
+    padding-right: 2px;
+  }
+  .thQuantity {
+    padding-right: 2px;
+   
+  }
+  .thEnvCost {
+    padding-right: 2px;
+    
+  }
+  .thLevel {
+    padding-right: 2px;
+  }
+
+  tr td {
+    padding:2px 10px;
+  }
+
+
+  .unit {
+    font-size: 9px;
+  }
+
+  .totalBill {
+    font-size: 11px;
+  }
+
+  }
+`
+
+const NoteWrapper = styled.div`
+  margin-left: 40px;
+  margin-top: 20px;
+
+  .textNote {
+    opacity: 0.8;
+  }
+
+  @media(max-width: 912px) {
+    margin-left: 0px;
+
+    .textNote{
+      font-size: 11px;
+    }
+    
+  }
+
+
 `
 
 export default function Bill({ order, billPopup, setBillPopup }) {
@@ -107,7 +170,7 @@ export default function Bill({ order, billPopup, setBillPopup }) {
       totalPlane += item.equivalent[1].equivalent * amount;
       totalTrain += item.equivalent[2].equivalent * amount;
 
-      console.log({totalEnvCost, totalCar, totalPlane, totalTrain })
+      console.log({ totalEnvCost, totalCar, totalPlane, totalTrain })
       return {
         ...item,
         amount: amount,
@@ -141,67 +204,67 @@ export default function Bill({ order, billPopup, setBillPopup }) {
       centered
       open={billPopup}
       onOk={() => setBillPopup(false)}
-      okButtonProps={{style: {backgroundColor: colors.primary}}}
+      okButtonProps={{ style: { backgroundColor: colors.primary } }}
       onCancel={() => setBillPopup(false)}
-      cancelButtonProps={{style: {border: `1px solid ${colors.primary}`, color: colors.primary}}}
+      cancelButtonProps={{ style: { border: `1px solid ${colors.primary}`, color: colors.primary } }}
       width={1000}
     >
-     {order.length > 0?
-      <><TableWrapper>
-      <tr>
-        <th className='thDish'>Dish</th>
-        <th className='thServing'>Serving<Text style={{fontSize: 12, opacity: 0.8}}>(s)</Text></th>
-        <th className='thQuantity'>Quantity<Text style={{fontSize: 12, opacity: 0.8}}>(g)</Text></th>
-        <th className='thEnvCost'>Environmental costs<Text style={{fontSize: 12, opacity: 0.8}}>(gCO2e)</Text></th>
-        <th className='thLevel'>Level of impact</th>
-        <th className='thEquivalent'>Equivalent</th>
+      {order.length > 0 ?
+        <><TableWrapper>
+          <tr>
+            <th className='thDish'>Dish</th>
+            <th className='thServing'>Serving<br /><Text className='unit'>(s)</Text></th>
+            <th className='thQuantity'>Quantity<br /><Text className='unit'>(g)</Text></th>
+            <th className='thEnvCost'>Environmental costs <Text className='unit'>(gCO2e)</Text></th>
+            <th className='thLevel'>Level of impact</th>
+            <th className='thEquivalent'>Equivalent</th>
 
-      </tr>
+          </tr>
 
-      {bill.map((item, index) => (
+          {bill.map((item, index) => (
 
-        <tr className={index % 2 == 0 ? 'bgBlue' : ''} key={item.id}>
-          <td className='tdDish'>{item.name} </td>
-          <td>{item.amount} </td>
-          <td>{item.quantity} </td>
-          <td>{item.envCost} </td>
-          <td className={item.level.replace(' ', '')}>{item.level} </td>
-          <td>
-            <div>
-              <text className='textQuivalent'>{(item.equivalent[0].equivalent * item.amount).toFixed(2)}</text> km in an average petrol car
-            </div>
-            <div>
-              <text className='textQuivalent'>{(item.equivalent[1].equivalent * item.amount).toFixed(2)}</text> km by plane
-            </div>
-            <div>
-              <text className='textQuivalent'>{(item.equivalent[2].equivalent * item.amount).toFixed(2)}</text> km by train
-            </div>
-          </td>
+            <tr className={index % 2 == 0 ? 'bgBlue' : ''} key={item.id}>
+              <td className='tdDish'>{item.name} </td>
+              <td>{item.amount} </td>
+              <td>{item.quantity} </td>
+              <td>{item.envCost} </td>
+              <td className={item.level.replace(' ', '')}>{item.level} </td>
+              <td>
+                <div>
+                  <text className='textQuivalent'>{(item.equivalent[0].equivalent * item.amount).toFixed(2)}</text> km in an average petrol car
+                </div>
+                <div>
+                  <text className='textQuivalent'>{(item.equivalent[1].equivalent * item.amount).toFixed(2)}</text> km by plane
+                </div>
+                <div>
+                  <text className='textQuivalent'>{(item.equivalent[2].equivalent * item.amount).toFixed(2)}</text> km by train
+                </div>
+              </td>
 
-        </tr>
-      ))}
-      {
-        totalBill && <tr>
-          <td className='totalBill' colSpan={3}>TOTAL</td>
-          <td>{totalBill.envCost}</td>
-          <td className={totalBill.level.replace(' ', '')}>{totalBill.level}</td>
-          <td><div>
-              <text className='textQuivalent'>{totalBill.car.toFixed(2)}</text> km in an average petrol car
-            </div>
-            <div>
-              <text className='textQuivalent'>{totalBill.plane.toFixed(2)}</text> km by plane
-            </div>
-            <div>
-              <text className='textQuivalent'>{totalBill.train.toFixed(2)}</text> km by train
-            </div> </td>
-        </tr>
+            </tr>
+          ))}
+          {
+            totalBill && <tr>
+              <td className='totalBill' colSpan={3}>TOTAL</td>
+              <td>{totalBill.envCost}</td>
+              <td className={totalBill.level.replace(' ', '')}>{totalBill.level}</td>
+              <td><div>
+                <text className='textQuivalent'>{totalBill.car.toFixed(2)}</text> km in an average petrol car
+              </div>
+                <div>
+                  <text className='textQuivalent'>{totalBill.plane.toFixed(2)}</text> km by plane
+                </div>
+                <div>
+                  <text className='textQuivalent'>{totalBill.train.toFixed(2)}</text> km by train
+                </div> </td>
+            </tr>
+          }
+
+        </TableWrapper>
+          <NoteWrapper>
+            <Text className='textNote'>*gCO2e (means grams of carbon dioxide equivalent): a measurement of the total greenhouse gases emitted, expressed in terms of the equivalent measurement of carbon dioxide.</Text>
+          </NoteWrapper></> : <Text style={{ fontSize: 20, color: colors.second }}>Please choose a dish!</Text>
       }
-
-    </TableWrapper>
-    <div style={{marginLeft: 40, marginTop: 20}}>
-      <Text style={{opacity: 0.8}} >*gCO2e (means grams of carbon dioxide equivalent): a measurement of the total greenhouse gases emitted, expressed in terms of the equivalent measurement of carbon dioxide.</Text>
-    </div></>:<Text style={{fontSize: 20, color: colors.second}}>Please choose a dish!</Text>
-    }
     </ModalWrapper>
   )
 }

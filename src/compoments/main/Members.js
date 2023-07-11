@@ -1,5 +1,5 @@
 import { Avatar, Typography, Row, Col } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
 import { styled } from 'styled-components'
 import { images } from '../../constants/images'
 import { colors } from '../../constants/colors';
@@ -19,21 +19,31 @@ const MemberWrapper = styled(Row)`
     width: 120px;
     font-weight: bold;
     height: 60px;
-   Text {
-    font-size: 14px;
+
+   .text_member_name {
+    font-size: 20px;
    }
+
+   @media(max-width: 912px) {
+    .text_member_name {
+      font-size: 11px;
+    }
+    
+    }
   }
 `
 export default function Members({ imageUrl, name }) {
+
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
   return (
 
     <MemberWrapper>
       <Col>
-        <Avatar className='member_avt' size={140} src={imageUrl} />
+        <Avatar className='member_avt' size={screenWidth>912?140:100} src={imageUrl} />
       </Col>
 
       <Col className='member_name' style={{ textAlign: 'center', marginTop: 10 }}>
-        <Text style={{fontSize: 20}} >{name}</Text>
+        <Text className='text_member_name' >{name}</Text>
       </Col>
     </MemberWrapper>
   )
