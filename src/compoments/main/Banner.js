@@ -91,7 +91,7 @@ const InfoWrapper = styled.div`
     }
 
     .title, .text {
-      padding: 0 10px;
+      padding: 0 5px;
     }
 
     .btn_menu {

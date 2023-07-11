@@ -24,6 +24,7 @@ const MenuWrapper = styled.div`
   width: 99%;
   max-width: 1200px;
 
+  margin: 0 2px;
 
   .ant-menu-item-selected {
     background-color: ${colors.primary};
