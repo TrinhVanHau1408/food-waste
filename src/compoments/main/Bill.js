@@ -257,11 +257,11 @@ export default function Bill({ order, billPopup, setBillPopup, isEnglish }) {
               <td className={totalBill.level.replace(' ', '')}>{totalBill.level}</td>
               <td><div>
                 <text className='textQuivalent'>{totalBill.car.toFixed(2)}</text>
-                {isEnglish ? 'km in an average petrol car' : 'bằng 1 chiếc xe hơi xăng trung bình'}
+                {isEnglish ? ' km in an average petrol car' : ' bằng 1 chiếc xe hơi xăng trung bình'}
               </div>
                 <div>
                   <text className='textQuivalent'>{totalBill.plane.toFixed(2)}</text>
-                  {isEnglish ? 'km by plane' : 'bằng máy bay'}
+                  {isEnglish ? ' km by plane' : ' bằng máy bay'}
                 </div>
                 <div>
                   <text className='textQuivalent'>{totalBill.train.toFixed(2)}</text>
