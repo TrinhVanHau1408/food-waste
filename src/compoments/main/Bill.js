@@ -265,7 +265,7 @@ export default function Bill({ order, billPopup, setBillPopup, isEnglish }) {
                 </div>
                 <div>
                   <text className='textQuivalent'>{totalBill.train.toFixed(2)}</text>
-                  {isEnglish ? 'km by train' : 'km bằng xe lửa'}
+                  {isEnglish ? ' km by train' : ' km bằng xe lửa'}
                 </div> </td>
             </tr>
           }
