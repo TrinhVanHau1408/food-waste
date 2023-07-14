@@ -283,7 +283,7 @@ export default function Bill({ order, billPopup, setBillPopup, isEnglish }) {
             of the equivalent measurement of carbon dioxide.`:
             `*gCO2e = khối lượng greenhouse gases đã được quy đổi thành tương đương với CO2.
             Lượng CO2e càng cao thì environmental impact càng cao`}</Text>
-          </NoteWrapper></> : <Text style={{ fontSize: 20, color: colors.second }}>Please choose a dish!</Text>
+          </NoteWrapper></> : <Text style={{ fontSize: 20, color: colors.second }}>{isEnglish?'Please choose a dish!':'Vui lòng chọn món!'}</Text>
       }
     </ModalWrapper>
   )
