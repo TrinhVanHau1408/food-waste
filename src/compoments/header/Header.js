@@ -77,7 +77,7 @@ const Navigation = styled.nav`
    }
 `;
 
-export default function Header({ scrollToSection, active }) {
+export default function Header({ scrollToSection, active, isEnglish }) {
   return (
     <HeaderWrapper>
       <Navigation>
@@ -88,16 +88,28 @@ export default function Header({ scrollToSection, active }) {
         <ul className='displayNav'>
 
           <li>
-            <button className={active =='homePage'?'active':''} onClick={() => scrollToSection('homePage')}>Homepage</button>
+            <button className={active == 'homePage' ? 'active' : ''}
+              onClick={() => scrollToSection('homePage')}>
+              {isEnglish ? 'Homepage' : 'Trang chủ'}
+            </button>
           </li>
           <li>
-            <button  className={active =='aboutUs'?'active':''} onClick={() => scrollToSection('aboutUs')}>About us</button>
+            <button className={active == 'aboutUs' ? 'active' : ''}
+              onClick={() => scrollToSection('aboutUs')}>
+              {isEnglish ? 'About us' : ' Về Overbox'}
+            </button>
           </li>
           <li>
-            <button  className={active =='menu'?'active':''} onClick={() => scrollToSection('menu')}>Menu</button>
+            <button className={active == 'menu' ? 'active' : ''}
+              onClick={() => scrollToSection('menu')}>
+              Menu
+            </button>
           </li>
           <li>
-            <button className={active =='member'?'active':''} onClick={() => scrollToSection('member')}>Member</button>
+            <button className={active == 'member' ? 'active' : ''}
+              onClick={() => scrollToSection('member')}>
+              {isEnglish ? 'Member' : 'Thành viên'}
+            </button>
           </li>
 
         </ul>

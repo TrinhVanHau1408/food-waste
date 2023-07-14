@@ -59,14 +59,14 @@ const RowWrapper = styled(Row)`
   }
 
 `
-export default function Footer() {
+export default function Footer({isEnglish}) {
   return (
 
     <FooterWrapper>
       <RowWrapper >
         <Col>
           <Row style={{ display: 'flex', justifyContent: 'center' }}>
-            <Text className='titleInfo member'>Contact Information</Text>
+            <Text className='titleInfo member'>{isEnglish?'Contact Information':'Thông tin liên hệ'}</Text>
             <Col className='methodContact'>
               <Row className='method'>Email:</Row>
               <Row className='method'>Facebook:</Row>

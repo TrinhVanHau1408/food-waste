@@ -3,6 +3,7 @@ import Header from './compoments/header/Header';
 import Footer from './compoments/footer';
 import MenuDish from './pages/Menu';
 import {useRef, useState } from 'react';
+import ButtonTranslate from './compoments/main/ButtonTranslate';
 
 
 
@@ -15,6 +16,7 @@ function App() {
   const memberRef = useRef(null);
   const homepageRef = useRef(null);
   const [active, setActive] =useState('homePage')
+  const [isEnglish, setIsEnglish] = useState(true);
   const scrollToSection = (section) => {
     let ref;
     switch (section) {
@@ -45,12 +47,16 @@ function App() {
   };
 
  
+  
 
   return (
-    <div >
-      <Header scrollToSection={scrollToSection} active={active}/>
-      <MenuDish homepageRef={homepageRef} aboutUsRef={aboutUsRef} menuRef={menuRef} memberRef={memberRef}/>
-      <Footer />
+    <div>
+      <Header scrollToSection={scrollToSection} isEnglish={isEnglish} active={active}/>
+      <div style={{position: 'relative'}}>
+        <ButtonTranslate isEnglish={isEnglish} setIsEnglish={setIsEnglish}/>
+        <MenuDish homepageRef={homepageRef} isEnglish={isEnglish} aboutUsRef={aboutUsRef} menuRef={menuRef} memberRef={memberRef}/>
+      </div>
+      <Footer isEnglish={isEnglish}/>
     </div>
   );
 }

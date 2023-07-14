@@ -119,7 +119,7 @@ const MyButton = styled.button`
    }
 
 `
-export default function Dish({ dish, myOrder, handleChildStateChange }) {
+export default function Dish({ dish,isEnglish, myOrder, handleChildStateChange }) {
 
 
 
@@ -135,14 +135,14 @@ export default function Dish({ dish, myOrder, handleChildStateChange }) {
       <ContentWrapper>
         <div>
           <div>
-            <Text className='name_dish'>{dish.name}</Text>
+            <Text className='name_dish'>{isEnglish?dish.name.eng:dish.name.vn}</Text>
           </div>
-          <Text className='amount_per_serving'>{dish.amountPerServing}/serving</Text>
+          <Text className='amount_per_serving'>{isEnglish?`${dish.amountPerServing.eng}/serving`:`${dish.amountPerServing.vn}/Phần`}</Text>
         </div>
 
         <ServingWrapper>
           {/* <Text className='order_sering'>{myOrder && `${myOrder.amount} serving` } </Text> */}
-          <Text className='order_sering'>{myOrder && (myOrder.amount > 1 ? `${myOrder.amount} servings` : `${myOrder.amount} serving`)} </Text>
+          <Text className='order_sering'>{myOrder && (myOrder.amount > 1 ? `${myOrder.amount} ${isEnglish?'servings':'Phần'}` : `${myOrder.amount} ${isEnglish?'serving':'Phần'}`)} </Text>
 
           <ButtonWrapper>
             {myOrder && <MyButton

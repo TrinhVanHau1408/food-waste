@@ -12,13 +12,11 @@ const BannerWrapper = styled.div`
   justify-content: center;
   position: relative;
   over-flow: hidden;
-
   .banner_img {
     object-fit: fill;
     width: 1200px;
     height: 450px;
   }
-  
   @media(max-width: 912px) {
     .banner_img {
       width: 100%;
@@ -51,9 +49,7 @@ const InfoWrapper = styled.div`
   }
   .title, .text  {
     color: #F6F9FA;
-  
     text-align: center;
-  
     background-color: rgba(161, 59, 70, 0.8);
     border-radius: 5px;
     padding: 0 20px;
@@ -69,10 +65,7 @@ const InfoWrapper = styled.div`
     background-color: ${colors.primary};
     border: none;
     box-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
-
-   
   }
-
   .btn_menu:hover  {
     color: ${colors.primary};
     font-weight: bold;
@@ -89,11 +82,9 @@ const InfoWrapper = styled.div`
       margin-top: 5px;
       font-size: 16px;
     }
-
     .title, .text {
       padding: 0 5px;
     }
-
     .btn_menu {
       font-size: 18px;
     }
@@ -101,7 +92,7 @@ const InfoWrapper = styled.div`
 `;
 
 
-export default function Banner({menuRef}) {
+export default function Banner({menuRef, isEnglish}) {
   const scrollToSectionMenu = () => {
     let ref = menuRef;
 
@@ -115,10 +106,10 @@ export default function Banner({menuRef}) {
       <BannerImg  className='banner_img' preview={false} src={images.banner} />
 
       <InfoWrapper>
-        <Text className='title'>WHAT’S THE COST?</Text>
-        <Text className='text'>Choose your meal and see how much it “costs”.</Text>
+        <Text className='title'>{isEnglish?'WHAT’S THE COST?':'GIÁ LÀ BAO NHIÊU?'}</Text>
+        <Text className='text'>{isEnglish?'Choose your meal and see how much it “costs”.':' Hãy chọn bữa ăn của bạn và xem “giá” của chúng nhé!'}</Text>
         <button className='btn_menu' onClick={ scrollToSectionMenu}>
-         GO TO MENU
+         {isEnglish?'GO TO MENU': 'ĐI ĐẾN MENU'}
         </button>
       </InfoWrapper>
     </BannerWrapper>)

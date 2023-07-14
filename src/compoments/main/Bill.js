@@ -145,7 +145,7 @@ const NoteWrapper = styled.div`
 
 `
 
-export default function Bill({ order, billPopup, setBillPopup }) {
+export default function Bill({ order, billPopup, setBillPopup, isEnglish }) {
 
   const [bill, setBill] = useState([]);
   const [totalBill, setTotalBill] = useState(null);
@@ -212,32 +212,38 @@ export default function Bill({ order, billPopup, setBillPopup }) {
       {order.length > 0 ?
         <><TableWrapper>
           <tr>
-            <th className='thDish'>Dish</th>
-            <th className='thServing'>Serving<br /><Text className='unit'>(s)</Text></th>
-            <th className='thQuantity'>Quantity<br /><Text className='unit'>(g)</Text></th>
-            <th className='thEnvCost'>Environmental costs <Text className='unit'>(gCO2e)</Text></th>
-            <th className='thLevel'>Level of impact</th>
-            <th className='thEquivalent'>Equivalent</th>
+            <th className='thDish'>{isEnglish ? 'Dish' : 'Món ăn'}</th>
+            <th className='thServing'>{isEnglish ? 'Serving' : 'Khẩu phần'}<br /><Text className='unit'>(s)</Text></th>
+            <th className='thQuantity'>{isEnglish ? 'Quantity' : 'Số lượng'}<br /><Text className='unit'>(g)</Text></th>
+            <th className='thEnvCost'>{isEnglish ? 'Environmental costs' : 'Chi phí'} <Text className='unit'>(gCO2e)</Text></th>
+            <th className='thLevel'>{isEnglish ? 'Level of impact' : 'Cấp độ ảnh hưởng'}</th>
+            <th className='thEquivalent'>{isEnglish ? 'Equivalent' : 'Tương đương'}</th>
 
           </tr>
 
           {bill.map((item, index) => (
 
             <tr className={index % 2 == 0 ? 'bgBlue' : ''} key={item.id}>
-              <td className='tdDish'>{item.name} </td>
+              <td className='tdDish'>{isEnglish ? item.name.eng : item.name.vn} </td>
               <td>{item.amount} </td>
               <td>{item.quantity} </td>
               <td>{item.envCost} </td>
               <td className={item.level.replace(' ', '')}>{item.level} </td>
               <td>
                 <div>
-                  <text className='textQuivalent'>{(item.equivalent[0].equivalent * item.amount).toFixed(2)}</text> km in an average petrol car
+                  <text className='textQuivalent'>
+                    {(item.equivalent[0].equivalent * item.amount).toFixed(2)}
+                  </text> {isEnglish ? 'km in an average petrol car' : 'bằng 1 chiếc xe hơi xăng trung bình'}
                 </div>
                 <div>
-                  <text className='textQuivalent'>{(item.equivalent[1].equivalent * item.amount).toFixed(2)}</text> km by plane
+                  <text className='textQuivalent'>
+                    {(item.equivalent[1].equivalent * item.amount).toFixed(2)}
+                  </text> {isEnglish ? 'km by plane' : 'bằng máy bay'}
                 </div>
                 <div>
-                  <text className='textQuivalent'>{(item.equivalent[2].equivalent * item.amount).toFixed(2)}</text> km by train
+                  <text className='textQuivalent'>
+                    {(item.equivalent[2].equivalent * item.amount).toFixed(2)}
+                  </text> {isEnglish ? 'km by train' : 'km bằng xe lửa'}
                 </div>
               </td>
 
@@ -245,17 +251,20 @@ export default function Bill({ order, billPopup, setBillPopup }) {
           ))}
           {
             totalBill && <tr>
-              <td className='totalBill' colSpan={3}>TOTAL</td>
+              <td className='totalBill' colSpan={3}>{isEnglish ? 'TOTAL' : 'TỔNG'}</td>
               <td>{totalBill.envCost}</td>
               <td className={totalBill.level.replace(' ', '')}>{totalBill.level}</td>
               <td><div>
-                <text className='textQuivalent'>{totalBill.car.toFixed(2)}</text> km in an average petrol car
+                <text className='textQuivalent'>{totalBill.car.toFixed(2)}</text>
+                {isEnglish ? 'km in an average petrol car' : 'bằng 1 chiếc xe hơi xăng trung bình'}
               </div>
                 <div>
-                  <text className='textQuivalent'>{totalBill.plane.toFixed(2)}</text> km by plane
+                  <text className='textQuivalent'>{totalBill.plane.toFixed(2)}</text>
+                  {isEnglish ? 'km by plane' : 'bằng máy bay'}
                 </div>
                 <div>
-                  <text className='textQuivalent'>{totalBill.train.toFixed(2)}</text> km by train
+                  <text className='textQuivalent'>{totalBill.train.toFixed(2)}</text>
+                  {isEnglish ? 'km by train' : 'km bằng xe lửa'}
                 </div> </td>
             </tr>
           }

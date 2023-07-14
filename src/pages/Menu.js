@@ -172,12 +172,8 @@ const RowMemberWrapper = styled(Row)`
   margin:  20px;
  
 `
-const items1 = categoryFood.map(({ id, name }) => ({
-  key: `${id}`,
-  label: `${name}`,
-}));
 
-export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }) {
+export default function MenuDish({ homepageRef, isEnglish, aboutUsRef, menuRef, memberRef }) {
 
   const {
     token: { colorBgContainer },
@@ -189,6 +185,7 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
   };
   const [selectedItem, setSelectedItem] = useState(categoryFood[0].id);
   const [filterFood, setFilterFood] = useState(food)
+  const [categoty, setCategoty] = useState([]);
   const [order, setOrder] = useState([]);
   const [billPopup, setBillPopup] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
@@ -201,7 +198,13 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
 
 
 
-
+  useEffect(() => {
+    setCategoty(categoryFood.map(({ id, name }) => ({
+      key: `${id}`,
+      label: isEnglish?`${name.eng}`:`${name.vn}`,
+    })));
+    
+  }, [isEnglish])
 
   useEffect(() => {
     if (selectedItem != 0) {
@@ -245,11 +248,11 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
      
         <MenuWrapper >
           <section ref={homepageRef}>
-            <Banner menuRef={menuRef} />
+            <Banner isEnglish={isEnglish} menuRef={menuRef} />
           </section>
 
           <section ref={aboutUsRef}>
-            <AboutUs />
+            <AboutUs isEnglish={isEnglish}/>
           </section>
 
           <section  ref={menuRef}>
@@ -261,7 +264,7 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
 
 
               {screenWidth > 912 && <SiderWrapper style={{ background: colorBgContainer }} theme="light" width={350}>
-                <Menu className='menuCategory' theme="light" mode="inline" defaultSelectedKeys={['0']} items={items1} onSelect={handleMenuSelect}>
+                <Menu className='menuCategory' theme="light" mode="inline" defaultSelectedKeys={['0']} items={categoty} onSelect={handleMenuSelect}>
                 </Menu>
               </SiderWrapper> 
               }
@@ -271,7 +274,7 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
                   {/* <div><UnorderedListOutlined style={{ fontSize: 24, color: colors.primary }} onClick={() => { widthCategory == 0 ? setWidthCategory(200) : setWidthCategory(0) }} /></div> */}
                   {screenWidth <912 &&<select id="selectOption" value={selectedItem} onChange={handleSelectChange}>
                     <option value="">-- Categoty --</option>
-                    {items1.map(({ key, label }) => (
+                    {categoty.map(({ key, label }) => (
                       <option value={key} className={key == selectedItem ? 'selected' : ''}>{label}</option>
                     ))}
                   </select>}
@@ -285,7 +288,7 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
                     {filterFood.map((item, index) => (
 
                       <Col key={index} span={screenWidth < 912 ? 18 : 12}>
-                        <Dish dish={item} myOrder={order.filter(({ id }) => id == item.id)[0]} handleChildStateChange={handleChildStateChange} />
+                        <Dish isEnglish={isEnglish} dish={item} myOrder={order.filter(({ id }) => id == item.id)[0]} handleChildStateChange={handleChildStateChange} />
                       </Col>
 
                     ))}
@@ -297,7 +300,7 @@ export default function MenuDish({ homepageRef, aboutUsRef, menuRef, memberRef }
           <DividerCustomer />
           <section ref={memberRef}>
             <div className='title_menu'>
-              <Text className='text_title'>MEMBER</Text>
+              <Text className='text_title'>{isEnglish?'MEMBER':'THÀNH VIÊN'}</Text>
             </div>
             <RowMemberWrapper gutter={screenWidth > 912 ? [24, 16] : [4, 8]}>
               {member.map((item) => (
