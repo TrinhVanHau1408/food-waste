@@ -102,7 +102,7 @@ const TableWrapper = styled.table`
    
   }
   .thEnvCost {
-    padding-right: 2px;
+    padding-right: 0px;
     
   }
   .thLevel {
@@ -149,6 +149,7 @@ export default function Bill({ order, billPopup, setBillPopup, isEnglish }) {
 
   const [bill, setBill] = useState([]);
   const [totalBill, setTotalBill] = useState(null);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
   useEffect(() => {
     const filterOrder = food.filter((item) => {
       const foundItem = order.find((ord) => ord.id === item.id);
@@ -213,9 +214,9 @@ export default function Bill({ order, billPopup, setBillPopup, isEnglish }) {
         <><TableWrapper>
           <tr>
             <th className='thDish'>{isEnglish ? 'Dish' : 'Món ăn'}</th>
-            <th className='thServing'>{isEnglish ? 'Serving' : 'Khẩu phần'}<br /><Text className='unit'>(s)</Text></th>
-            <th className='thQuantity'>{isEnglish ? 'Quantity' : 'Số lượng'}<br /><Text className='unit'>(g)</Text></th>
-            <th className='thEnvCost'>{isEnglish ? 'Environmental costs' : 'Chi phí'} <Text className='unit'>(gCO2e)</Text></th>
+            <th className='thServing'>{isEnglish ? 'Serving' : 'Khẩu phần'}{screenWidth<=912&&<br />}<Text className='unit'>(s)</Text></th>
+            <th className='thQuantity'>{isEnglish ? 'Quantity' : 'Số lượng'}{screenWidth<=912&&<br />}<Text className='unit'>(g)</Text></th>
+            <th className='thEnvCost'>{isEnglish ? 'Environmental costs' : 'Chi phí'} {screenWidth<=912&&<br />}<Text className='unit'>(gCO2e)</Text></th>
             <th className='thLevel'>{isEnglish ? 'Level of impact' : 'Cấp độ ảnh hưởng'}</th>
             <th className='thEquivalent'>{isEnglish ? 'Equivalent' : 'Tương đương'}</th>
 
@@ -271,7 +272,11 @@ export default function Bill({ order, billPopup, setBillPopup, isEnglish }) {
 
         </TableWrapper>
           <NoteWrapper>
-            <Text className='textNote'>*gCO2e (means grams of carbon dioxide equivalent): a measurement of the total greenhouse gases emitted, expressed in terms of the equivalent measurement of carbon dioxide.</Text>
+            <Text className='textNote'>{isEnglish?`*gCO2e (means grams of carbon dioxide equivalent): 
+            a measurement of the total greenhouse gases emitted, expressed in terms 
+            of the equivalent measurement of carbon dioxide.`:
+            `*gCO2e = khối lượng greenhouse gases đã được quy đổi thành tương đương với CO2.
+            Lượng CO2e càng cao thì environmental impact càng cao`}</Text>
           </NoteWrapper></> : <Text style={{ fontSize: 20, color: colors.second }}>Please choose a dish!</Text>
       }
     </ModalWrapper>
