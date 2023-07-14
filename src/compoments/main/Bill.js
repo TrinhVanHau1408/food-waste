@@ -144,6 +144,12 @@ const NoteWrapper = styled.div`
 
 
 `
+const translate = (text) => {
+  if (text === 'Very Low') return 'Rất thấp';
+  if (text === 'Low') return 'Thấp';
+  if (text === 'Medium') return 'Trung bình';
+  return 'Cao';
+}
 
 export default function Bill({ order, billPopup, setBillPopup, isEnglish }) {
 
@@ -229,7 +235,7 @@ export default function Bill({ order, billPopup, setBillPopup, isEnglish }) {
               <td>{item.amount} </td>
               <td>{item.quantity} </td>
               <td>{item.envCost} </td>
-              <td className={item.level.replace(' ', '')}>{item.level} </td>
+              <td className={item.level.replace(' ', '')}>{isEnglish?item.level:translate(item.level)} </td>
               <td>
                 <div>
                   <text className='textQuivalent'>
@@ -254,7 +260,7 @@ export default function Bill({ order, billPopup, setBillPopup, isEnglish }) {
             totalBill && <tr>
               <td className='totalBill' colSpan={3}>{isEnglish ? 'TOTAL' : 'TỔNG'}</td>
               <td>{totalBill.envCost}</td>
-              <td className={totalBill.level.replace(' ', '')}>{totalBill.level}</td>
+              <td className={totalBill.level.replace(' ', '')}>{isEnglish?totalBill.level:translate(totalBill.level)}</td>
               <td><div>
                 <text className='textQuivalent'>{totalBill.car.toFixed(2)}</text>
                 {isEnglish ? ' km in an average petrol car' : ' bằng 1 chiếc xe hơi xăng trung bình'}
