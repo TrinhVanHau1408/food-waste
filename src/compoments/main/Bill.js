@@ -244,7 +244,7 @@ export default function Bill({ order, billPopup, setBillPopup, isEnglish }) {
                 <div>
                   <text className='textQuivalent'>
                     {(item.equivalent[2].equivalent * item.amount).toFixed(2)}
-                  </text> {isEnglish ? 'km by train' : 'km bằng xe lửa'}
+                  </text> {isEnglish ? 'km by train' : 'bằng km bằng xe lửa'}
                 </div>
               </td>
 
@@ -265,7 +265,7 @@ export default function Bill({ order, billPopup, setBillPopup, isEnglish }) {
                 </div>
                 <div>
                   <text className='textQuivalent'>{totalBill.train.toFixed(2)}</text>
-                  {isEnglish ? ' km by train' : ' km bằng xe lửa'}
+                  {isEnglish ? ' km by train' : ' bằng km bằng xe lửa'}
                 </div> </td>
             </tr>
           }
