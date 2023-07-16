@@ -21,6 +21,7 @@ const CardWrapper = styled(Card)`
     color: ${colors.second};
     font-weight: bold;
     font-size: ${sizes.h2};
+    flex: 1;
   }
   .content {
     color: ${colors.primary};
@@ -32,7 +33,8 @@ const CardWrapper = styled(Card)`
   }
   @media(max-width: 912px) {
     .title_about_us {
-      font-size: 18px;
+      font-size: 13px;
+      
     }
     .rowLogo {
       margin: 5px;

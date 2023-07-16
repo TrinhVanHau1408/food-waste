@@ -106,7 +106,7 @@ export default function Banner({menuRef, isEnglish}) {
       <BannerImg  className='banner_img' preview={false} src={images.banner} />
 
       <InfoWrapper>
-        <Text className='title'>{isEnglish?'WHAT’S THE COST?':'GIÁ LÀ BAO NHIÊU?'}</Text>
+        <Text className='title'>WHAT’S THE COST?</Text>
         <Text className='text'>{isEnglish?'Choose your meal and see how much it “costs”.':' Hãy chọn bữa ăn của bạn và xem “giá” của chúng nhé!'}</Text>
         <button className='btn_menu' onClick={ scrollToSectionMenu}>
          {isEnglish?'GO TO MENU': 'ĐI ĐẾN MENU'}

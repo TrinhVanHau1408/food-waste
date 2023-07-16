@@ -44,7 +44,7 @@ const MenuWrapper = styled.div`
 
      @media(max-width: 912px) {
       .text_title {
-        font-size: 20px;
+        font-size: 16px;
       }
     }
   
