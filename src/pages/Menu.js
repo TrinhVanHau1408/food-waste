@@ -256,7 +256,7 @@ export default function MenuDish({ homepageRef, isEnglish, aboutUsRef, menuRef, 
           </section>
 
           <section  ref={menuRef}>
-            {<Bill order={order} billPopup={billPopup} setBillPopup={setBillPopup} />}
+            {<Bill order={order} billPopup={billPopup} setBillPopup={setBillPopup} isEnglish={isEnglish} />}
             <div className='title_menu'>
               <Text className='text_title'>MENU</Text>
             </div>
