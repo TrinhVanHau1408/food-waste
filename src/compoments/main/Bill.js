@@ -240,17 +240,17 @@ export default function Bill({ order, billPopup, setBillPopup, isEnglish }) {
                 <div>
                   <text className='textQuivalent'>
                     {(item.equivalent[0].equivalent * item.amount).toFixed(2)}
-                  </text> {isEnglish ? 'km in an average petrol car' : 'km bằng 1 chiếc xe hơi xăng trung bình'}
+                  </text> {isEnglish ? 'km in an average petrol car' : 'km đi bằng 1 chiếc xe hơi xăng trung bình'}
                 </div>
                 <div>
                   <text className='textQuivalent'>
                     {(item.equivalent[1].equivalent * item.amount).toFixed(2)}
-                  </text> {isEnglish ? 'km by plane' : 'km bằng máy bay'}
+                  </text> {isEnglish ? 'km by plane' : 'km đi bằng máy bay'}
                 </div>
                 <div>
                   <text className='textQuivalent'>
                     {(item.equivalent[2].equivalent * item.amount).toFixed(2)}
-                  </text> {isEnglish ? 'km by train' : 'km bằng xe lửa'}
+                  </text> {isEnglish ? 'km by train' : 'km đi bằng xe lửa'}
                 </div>
               </td>
 
@@ -263,15 +263,15 @@ export default function Bill({ order, billPopup, setBillPopup, isEnglish }) {
               <td className={totalBill.level.replace(' ', '')}>{isEnglish?totalBill.level:translate(totalBill.level)}</td>
               <td><div>
                 <text className='textQuivalent'>{totalBill.car.toFixed(2)}</text>
-                {isEnglish ? ' km in an average petrol car' : ' km bằng 1 chiếc xe hơi xăng trung bình'}
+                {isEnglish ? ' km in an average petrol car' : ' km đi bằng 1 chiếc xe hơi xăng trung bình'}
               </div>
                 <div>
                   <text className='textQuivalent'>{totalBill.plane.toFixed(2)}</text>
-                  {isEnglish ? ' km by plane' : ' km bằng máy bay'}
+                  {isEnglish ? ' km by plane' : ' km đi bằng máy bay'}
                 </div>
                 <div>
                   <text className='textQuivalent'>{totalBill.train.toFixed(2)}</text>
-                  {isEnglish ? ' km by train' : ' km bằng xe lửa'}
+                  {isEnglish ? ' km by train' : ' km đi bằng xe lửa'}
                 </div> </td>
             </tr>
           }
