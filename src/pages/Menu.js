@@ -245,11 +245,12 @@ export default function MenuDish({ homepageRef, isEnglish, aboutUsRef, menuRef, 
 
   return (
     <ThemeProvider theme={themes}>
+       <section ref={homepageRef}>
+            <Banner isEnglish={isEnglish} menuRef={menuRef} />
+        </section>
      
         <MenuWrapper >
-          <section ref={homepageRef}>
-            <Banner isEnglish={isEnglish} menuRef={menuRef} />
-          </section>
+         
 
           <section ref={aboutUsRef}>
             <AboutUs isEnglish={isEnglish}/>

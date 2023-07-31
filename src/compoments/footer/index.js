@@ -3,6 +3,7 @@ import { styled } from 'styled-components'
 import { colors } from '../../constants/colors'
 import { Row, Col, Typography, Image } from 'antd'
 import { funded, member } from '../../constants/data';
+import { icons } from '../../constants/icons';
 
 const { Text } = Typography;
 
@@ -38,6 +39,8 @@ const RowWrapper = styled(Row)`
     .method {
         margin-bottom: 5px;
         font-size: 16px;
+
+      
       }
   }
 
@@ -45,10 +48,19 @@ const RowWrapper = styled(Row)`
     .content {
       margin-bottom: 10px;
       color: ${colors.white};
+      display: flex;
+      align-items: center;
     }
     .content a {
       outline: none;
       color: ${colors.white};
+    }
+
+    .content  img {
+      width: 40px;
+      hight: 40px;
+      margin-right: 10px;
+
     }
   }
 
@@ -67,15 +79,11 @@ export default function Footer({isEnglish}) {
         <Col>
           <Row style={{ display: 'flex', justifyContent: 'center' }}>
             <Text className='titleInfo member'>{isEnglish?'Contact Information':'Thông tin liên hệ'}</Text>
-            <Col className='methodContact'>
-              <Row className='method'>Email:</Row>
-              <Row className='method'>Facebook:</Row>
-              <Row className='method'>Contact:</Row>
-            </Col>
+
             <Col className='contentContact'>
-              <Row className='content'>myleftoverbox@gmail.com</Row>
-              <Row className='content'><a href='https://www.facebook.com/myleftoverbox'>https://www.facebook.com/myleftoverbox</a></Row>
-              <Row className='content'>0834514044 - 0367624114</Row>
+              <Row className='content'><img src={icons.email}/> myleftoverbox@gmail.com</Row>
+              <Row className='content'><img src={icons.facebook} /> <a href='https://www.facebook.com/myleftoverbox'>https://www.facebook.com/myleftoverbox</a></Row>
+              <Row className='content'><img src={icons.phone}/> 0834514044 - 0367624114</Row>
             </Col>
           </Row>
         </Col>

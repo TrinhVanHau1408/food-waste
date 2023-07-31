@@ -1,15 +1,11 @@
 import React from 'react';
-
 import styled from 'styled-components';
 import { colors } from '../../constants/colors';
 import { images } from '../../constants/images';
-// import { Image } from 'antd'
-// import { colors } from '../constans/colors';
+
 const HeaderWrapper = styled.header`
   background-color: #f2f2f2;
-  
   box-shadow: 0px 5px 4px rgba(118, 107, 107, 0.2);
- 
   position: fixed;
   top: 0;
   left: 0;
@@ -20,7 +16,6 @@ const HeaderWrapper = styled.header`
 const Logo = styled.div`
   img {
     width: 140px;
-  
   }
 `;
 
@@ -42,7 +37,7 @@ const Navigation = styled.nav`
   }
 
   ul li:hover {
-    color: red; /* Change the color to your desired hover color */
+    color: red;
   }
 
   ul li button {
@@ -54,7 +49,7 @@ const Navigation = styled.nav`
   }
 
   li:active {
-    color: blue; /* Change the color to your desired active color */
+    color: blue;
   }
 
   button {
@@ -66,10 +61,7 @@ const Navigation = styled.nav`
     padding: 5px 10px;
   }
 
-
-  
   @media(max-width: 912px) {
-
     margin: 0;
     .displayNav {
       display: none;
