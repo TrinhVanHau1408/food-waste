@@ -25,10 +25,11 @@ const BannerWrapper = styled.div`
   }
   @media(max-width: 912px) {
    
-    magrin: 0 10px;
+
+    margin-top: 50px;
     .banner_img {
       width: 100%;
-      height: auto;
+      height: 180px;
     }
    }
 `;

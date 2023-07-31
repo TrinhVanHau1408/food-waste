@@ -17,6 +17,12 @@ const Logo = styled.div`
   img {
     width: 140px;
   }
+
+  @media(max-width: 912px) {
+    img {
+      width: 70px;
+    }
+   }
 `;
 
 const Navigation = styled.nav`
