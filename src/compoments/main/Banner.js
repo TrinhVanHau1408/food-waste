@@ -26,7 +26,7 @@ const BannerWrapper = styled.div`
   @media(max-width: 912px) {
    
 
-    margin-top: 50px;
+    margin-top: 65px;
     .banner_img {
       width: 100%;
       height: 180px;
