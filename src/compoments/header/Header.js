@@ -20,7 +20,7 @@ const Logo = styled.div`
 
   @media(max-width: 912px) {
     img {
-      width: 70px;
+      width: 90px;
     }
    }
 `;

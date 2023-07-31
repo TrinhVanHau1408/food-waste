@@ -23,6 +23,7 @@ const RowWrapper = styled(Row)`
 
   .titleInfo {
     width: 100%;
+    font-weight: bold;
     font-size: 20px;
     margin: 10px 0;
     margin-left: 20px;
