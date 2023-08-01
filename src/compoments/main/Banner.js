@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Image, Typography } from 'antd';
 import styled from 'styled-components';
 import '../../fonts.css'
@@ -122,26 +122,6 @@ const InfoWrapper = styled.div`
 
 export default function Banner({ isEnglish }) {
 
-  const loadIframe = () => {
-    // Access the iframe's content and apply CSS styles when it's loaded
-    const iframe = document.getElementById('myIframe');
-
-    if (iframe) {
-      const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-      const body = iframeDocument.querySelector('body');
-      
-      console.log("body banner", body)
-
-      
-      // // Create a link element for the CSS file
-      // const link = iframeDocument.createElement('link');
-      // link.rel = 'stylesheet';
-      // link.href = '/path/to/your/iframeStyles.css'; // Replace with your CSS file path
-
-      // // Append the link to the head of the iframe's document
-      // head.appendChild(link);
-    }
-  };
   return (
     <BannerWrapper>
       <BannerImg className='banner_img' preview={false} src={images.banner} />
@@ -165,10 +145,10 @@ export default function Banner({ isEnglish }) {
 
           title='People who died from hunger'
           id='myIframe'
-          onLoad={loadIframe}
-          src='https://www.theworldcounts.com/embeds/counters/2?background_color=white&color=black&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=14'
+         
+          src='https://www.theworldcounts.com/embeds/counters/2?background_color=transparent &color=black&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=50'
           style={{ border: 'none', backgroundColor: 'transparent' }}
-          height='33' width='300'>
+          height='85' width='300'>
           
         </iframe>
       </InfoWrapper>
