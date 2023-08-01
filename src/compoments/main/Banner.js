@@ -122,26 +122,26 @@ const InfoWrapper = styled.div`
 
 export default function Banner({ isEnglish }) {
 
-  // const loadIframe = () => {
-  //   // Access the iframe's content and apply CSS styles when it's loaded
-  //   const iframe = document.getElementById('myIframe');
+  const loadIframe = () => {
+    // Access the iframe's content and apply CSS styles when it's loaded
+    const iframe = document.getElementById('myIframe');
 
-  //   if (iframe) {
-  //     const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-  //     const body = iframeDocument.querySelector('body');
+    if (iframe) {
+      const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+      const body = iframeDocument.querySelector('body');
       
-     
+      console.log("body banner", body)
 
       
-  //     // // Create a link element for the CSS file
-  //     // const link = iframeDocument.createElement('link');
-  //     // link.rel = 'stylesheet';
-  //     // link.href = '/path/to/your/iframeStyles.css'; // Replace with your CSS file path
+      // // Create a link element for the CSS file
+      // const link = iframeDocument.createElement('link');
+      // link.rel = 'stylesheet';
+      // link.href = '/path/to/your/iframeStyles.css'; // Replace with your CSS file path
 
-  //     // // Append the link to the head of the iframe's document
-  //     // head.appendChild(link);
-  //   }
-  // };
+      // // Append the link to the head of the iframe's document
+      // head.appendChild(link);
+    }
+  };
   return (
     <BannerWrapper>
       <BannerImg className='banner_img' preview={false} src={images.banner} />
@@ -161,7 +161,7 @@ export default function Banner({ isEnglish }) {
         </Text>
         <Text className='text'>in the world, this year</Text>
         <Text className='text_credit'>Credit: <a href='https://www.theworldcounts.com'>https://www.theworldcounts.com</a></Text>
-        {/* <iframe
+        <iframe
 
           title='People who died from hunger'
           id='myIframe'
@@ -170,7 +170,7 @@ export default function Banner({ isEnglish }) {
           style={{ border: 'none', backgroundColor: 'transparent' }}
           height='33' width='300'>
           
-        </iframe> */}
+        </iframe>
       </InfoWrapper>
     </BannerWrapper>)
 }
